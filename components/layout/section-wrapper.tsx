@@ -20,7 +20,7 @@ export function SectionWrapper({
         <section
             id={id}
             className={cn(
-                "relative py-20 md:py-32 px-6",
+                "relative py-20 md:py-32 px-6 bg-white dark:bg-neutral-950 transition-colors duration-300",
                 fullHeight && "min-h-screen flex items-center",
                 className
             )}
@@ -57,7 +57,7 @@ export function SectionHeader({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold mb-4 text-white"
+                className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white"
                 style={{ letterSpacing: "-0.02em" }}
             >
                 {title}
@@ -69,7 +69,7 @@ export function SectionHeader({
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
                     className={cn(
-                        "text-lg max-w-xl text-neutral-400",
+                        "text-lg max-w-xl text-neutral-600 dark:text-neutral-400",
                         align === "center" && "mx-auto"
                     )}
                 >

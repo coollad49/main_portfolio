@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
 import { ProjectCard3D } from "../3d/project-card-3d";
 import { projects, categories } from "@/lib/data/projects";
+import { cn } from "@/lib/utils";
 
 export function Projects() {
     const [activeCategory, setActiveCategory] = useState("all");
@@ -32,16 +33,12 @@ export function Projects() {
                     <motion.button
                         key={category.id}
                         onClick={() => setActiveCategory(category.id)}
-                        className="px-4 py-2 text-sm font-medium rounded-full transition-all duration-200"
-                        style={{
-                            backgroundColor:
-                                activeCategory === category.id ? "#fafafa" : "#262626",
-                            color: activeCategory === category.id ? "#171717" : "#a3a3a3",
-                            border:
-                                activeCategory === category.id
-                                    ? "1px solid #fafafa"
-                                    : "1px solid #404040",
-                        }}
+                        className={cn(
+                            "px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 border",
+                            activeCategory === category.id
+                                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 border-neutral-900 dark:border-white"
+                                : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700"
+                        )}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >
@@ -73,8 +70,7 @@ export function Projects() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-center mt-8 text-sm"
-                style={{ color: "#737373" }}
+                className="text-center mt-8 text-sm text-neutral-500 dark:text-neutral-400"
             >
                 Showing {filteredProjects.length} of {projects.length} projects
             </motion.p>

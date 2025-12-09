@@ -53,8 +53,7 @@ export function Hero() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
-            style={{ backgroundColor: "#0a0a0a" }}
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950"
         >
             {/* 3D Background */}
             <Suspense fallback={null}>
@@ -62,10 +61,10 @@ export function Hero() {
             </Suspense>
 
             {/* Grid Pattern Overlay */}
-            <div className="absolute inset-0 grid-pattern opacity-30" />
+            <div className="absolute inset-0 grid-pattern opacity-30 dark:opacity-20" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <div className="relative z-10 container mx-auto px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -76,7 +75,7 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg mb-4 text-neutral-400"
+                        className="text-lg mb-4 text-neutral-600 dark:text-neutral-400"
                     >
                         Hello, I&apos;m
                     </motion.p>
@@ -86,7 +85,7 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tight text-white"
+                        className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 tracking-tight text-neutral-900 dark:text-white"
                     >
                         {personalInfo.name.split("-").map((part, i) => (
                             <span key={i}>
@@ -102,7 +101,7 @@ export function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        className="text-lg md:text-xl mb-2 max-w-2xl mx-auto text-neutral-400"
+                        className="text-lg md:text-xl mb-2 max-w-2xl mx-auto text-neutral-600 dark:text-neutral-400"
                     >
                         {personalInfo.tagline}
                     </motion.p>
@@ -114,7 +113,7 @@ export function Hero() {
                         transition={{ delay: 0.5 }}
                         className="h-8 mb-8"
                     >
-                        <span className="text-lg md:text-xl font-medium text-white">
+                        <span className="text-lg md:text-xl font-medium text-neutral-900 dark:text-white">
                             {displayText}
                             <span className="animate-pulse">|</span>
                         </span>
@@ -129,11 +128,7 @@ export function Hero() {
                     >
                         <motion.button
                             onClick={handleScrollToProjects}
-                            className="group px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-all"
-                            style={{
-                                backgroundColor: "#fafafa",
-                                color: "#171717",
-                            }}
+                            className="btn btn-primary group"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -143,12 +138,7 @@ export function Hero() {
                         <motion.a
                             href="/resume.pdf"
                             download
-                            className="group px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-all"
-                            style={{
-                                backgroundColor: "transparent",
-                                color: "#fafafa",
-                                border: "1.5px solid #404040",
-                            }}
+                            className="btn btn-outline group"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -165,7 +155,7 @@ export function Hero() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
                 onClick={handleScrollDown}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer transition-colors text-neutral-500 hover:text-white"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer"
                 aria-label="Scroll down"
             >
                 <span className="text-xs tracking-widest uppercase">Scroll</span>

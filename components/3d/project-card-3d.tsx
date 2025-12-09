@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/data/projects";
 
 interface ProjectCard3DProps {
@@ -39,16 +40,14 @@ export function ProjectCard3D({ project, index }: ProjectCard3DProps) {
         setIsHovered(false);
     };
 
-    const categoryLabels: Record<string, { label: string; color: string }> = {
-        "ai-ml": { label: "AI / ML", color: "#a855f7" },
-        fullstack: { label: "Full-Stack", color: "#3b82f6" },
-        tools: { label: "Tools", color: "#22c55e" },
-        data: { label: "Data Science", color: "#f97316" },
-    };
-
-    const cat = categoryLabels[project.category] || {
-        label: "Other",
-        color: "#6b7280",
+    const categoryColors: Record<string, string> = {
+        "ai-ml":
+            "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20",
+        fullstack:
+            "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20",
+        tools:
+            "bg-green-50 text-green-700 border-green-200 dark:bg-green-500/10 dark:text-green-400 dark:border-green-500/20",
+        data: "bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-500/10 dark:text-orange-400 dark:border-orange-500/20",
     };
 
     return (
@@ -65,94 +64,83 @@ export function ProjectCard3D({ project, index }: ProjectCard3DProps) {
                 transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                 transformStyle: "preserve-3d",
             }}
-            className="group cursor-pointer"
+            className="group cursor-pointer h-full"
         >
             <div
-                className="relative h-full rounded-2xl p-6 transition-all duration-300"
-                style={{
-                    backgroundColor: "#171717",
-                    border: isHovered ? "1px solid #525252" : "1px solid #404040",
-                    boxShadow: isHovered
-                        ? "0 20px 40px -12px rgba(0,0,0,0.5)"
-                        : "0 4px 12px rgba(0,0,0,0.2)",
-                    transformStyle: "preserve-3d",
-                }}
+                className={cn(
+                    "relative h-full rounded-2xl p-6 transition-all duration-300",
+                    "bg-white dark:bg-neutral-900",
+                    "border border-neutral-200 dark:border-neutral-800",
+                    isHovered
+                        ? "shadow-xl shadow-neutral-200/50 dark:shadow-neutral-900/50 border-neutral-300 dark:border-neutral-700"
+                        : "shadow-sm"
+                )}
+                style={{ transformStyle: "preserve-3d" }}
             >
                 {/* Content */}
                 <div
-                    className="relative z-10"
+                    className="relative z-10 flex flex-col h-full"
                     style={{ transform: "translateZ(20px)" }}
                 >
-                    {/* Category badge */}
-                    <span
-                        className="inline-block px-3 py-1 text-xs font-medium rounded-full mb-4"
-                        style={{
-                            backgroundColor: `${cat.color}20`,
-                            color: cat.color,
-                            border: `1px solid ${cat.color}40`,
-                        }}
-                    >
-                        {cat.label}
-                    </span>
-
-                    {/* Featured badge */}
-                    {project.featured && (
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-4">
                         <span
-                            className="ml-2 inline-block px-2 py-1 text-xs font-medium rounded-full"
-                            style={{
-                                backgroundColor: "#fafafa",
-                                color: "#171717",
-                            }}
+                            className={cn(
+                                "inline-block px-3 py-1 text-xs font-medium rounded-full border",
+                                categoryColors[project.category]
+                            )}
                         >
-                            Featured
+                            {project.category === "ai-ml"
+                                ? "AI / ML"
+                                : project.category === "fullstack"
+                                    ? "Full-Stack"
+                                    : project.category === "tools"
+                                        ? "Tools"
+                                        : "Data Science"}
                         </span>
-                    )}
+
+                        {project.featured && (
+                            <span className="inline-block px-2 py-1 text-xs font-medium rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900">
+                                Featured
+                            </span>
+                        )}
+                    </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold mb-2 text-white transition-colors">
+                    <h3 className="text-xl font-bold mb-2 text-neutral-900 dark:text-white group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition-colors">
                         {project.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm mb-4 line-clamp-3 text-neutral-400">
+                    <p className="text-sm mb-4 line-clamp-3 text-neutral-600 dark:text-neutral-400 flex-grow">
                         {project.shortDescription}
                     </p>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                         {project.techStack.slice(0, 4).map((tech) => (
                             <span
                                 key={tech}
-                                className="px-2 py-1 text-xs rounded-md"
-                                style={{
-                                    backgroundColor: "#262626",
-                                    color: "#a3a3a3",
-                                }}
+                                className="px-2 py-1 text-xs rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
                             >
                                 {tech}
                             </span>
                         ))}
                         {project.techStack.length > 4 && (
-                            <span
-                                className="px-2 py-1 text-xs rounded-md"
-                                style={{
-                                    backgroundColor: "#262626",
-                                    color: "#737373",
-                                }}
-                            >
+                            <span className="px-2 py-1 text-xs rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-500">
                                 +{project.techStack.length - 4}
                             </span>
                         )}
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 pt-2 border-t border-neutral-100 dark:border-neutral-800">
                         {project.github && (
                             <a
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-sm transition-colors hover:text-white text-neutral-400"
+                                className="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
                             >
                                 <Github className="w-4 h-4" />
                                 Code
@@ -163,7 +151,7 @@ export function ProjectCard3D({ project, index }: ProjectCard3DProps) {
                                 href={project.live}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center gap-1 text-sm transition-colors hover:text-white text-neutral-400"
+                                className="flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
                             >
                                 <ExternalLink className="w-4 h-4" />
                                 Live
@@ -174,11 +162,10 @@ export function ProjectCard3D({ project, index }: ProjectCard3DProps) {
 
                 {/* Bottom gradient line */}
                 <div
-                    className="absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl transition-opacity duration-300"
-                    style={{
-                        background: `linear-gradient(90deg, ${cat.color}50, ${cat.color}, ${cat.color}50)`,
-                        opacity: isHovered ? 1 : 0,
-                    }}
+                    className={cn(
+                        "absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100",
+                        "bg-gradient-to-r from-transparent via-neutral-400 dark:via-neutral-600 to-transparent"
+                    )}
                 />
             </div>
         </motion.div>

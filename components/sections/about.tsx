@@ -23,34 +23,23 @@ export function About() {
                 >
                     <div className="relative w-64 h-64 md:w-80 md:h-80">
                         {/* Gradient Ring */}
-                        <div
-                            className="absolute inset-0 rounded-full animate-pulse"
-                            style={{
-                                background:
-                                    "linear-gradient(135deg, #525252 0%, #262626 100%)",
-                            }}
-                        />
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-300 to-neutral-600 dark:from-neutral-600 dark:to-neutral-800 animate-pulse" />
 
                         {/* Avatar Container */}
-                        <div
-                            className="absolute inset-2 rounded-full overflow-hidden flex items-center justify-center"
-                            style={{ backgroundColor: "#262626" }}
-                        >
-                            <span className="text-6xl md:text-7xl font-bold text-neutral-500">
+                        <div className="absolute inset-2 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden flex items-center justify-center">
+                            <span className="text-6xl md:text-7xl font-bold text-neutral-400 dark:text-neutral-600">
                                 LAD
                             </span>
                         </div>
 
                         {/* Decorative Elements */}
                         <motion.div
-                            className="absolute -top-4 -right-4 w-24 h-24 rounded-full blur-xl"
-                            style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                            className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-neutral-300/50 dark:bg-neutral-700/50 blur-xl"
                             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
                             transition={{ duration: 4, repeat: Infinity }}
                         />
                         <motion.div
-                            className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full blur-xl"
-                            style={{ backgroundColor: "rgba(255,255,255,0.03)" }}
+                            className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-neutral-400/30 dark:bg-neutral-600/30 blur-xl"
                             animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.6, 0.3] }}
                             transition={{ duration: 5, repeat: Infinity }}
                         />
@@ -64,19 +53,21 @@ export function About() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    <h3 className="text-2xl font-bold mb-4 text-white">
+                    <h3 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">
                         Hi, I&apos;m Daniel! 👋
                     </h3>
 
-                    <div className="space-y-4 text-neutral-400">
+                    <div className="space-y-4 text-neutral-600 dark:text-neutral-400">
                         <p>
                             I&apos;m a{" "}
-                            <span className="font-medium text-white">
+                            <span className="font-medium text-neutral-900 dark:text-white">
                                 Full-Stack Developer
                             </span>{" "}
                             and{" "}
-                            <span className="font-medium text-white">AI Engineer</span> from
-                            Nigeria, passionate about building intelligent solutions that
+                            <span className="font-medium text-neutral-900 dark:text-white">
+                                AI Engineer
+                            </span>{" "}
+                            from Nigeria, passionate about building intelligent solutions that
                             solve real-world problems.
                         </p>
 
@@ -84,11 +75,11 @@ export function About() {
                             My journey started with a simple belief: if there&apos;s a tedious
                             process that can be automated, it should be. This mindset has led
                             me to build everything from{" "}
-                            <span className="font-medium text-white">
+                            <span className="font-medium text-neutral-900 dark:text-white">
                                 AI-powered exam graders
                             </span>{" "}
                             to{" "}
-                            <span className="font-medium text-white">
+                            <span className="font-medium text-neutral-900 dark:text-white">
                                 school management systems
                             </span>
                             .
@@ -118,16 +109,12 @@ export function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.5 + i * 0.1 }}
-                                className="text-center p-4 rounded-xl"
-                                style={{
-                                    backgroundColor: "#171717",
-                                    border: "1px solid #404040",
-                                }}
+                                className="text-center p-4 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700"
                             >
-                                <div className="text-2xl md:text-3xl font-bold text-white">
+                                <div className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">
                                     {stat.value}
                                 </div>
-                                <div className="text-xs mt-1 text-neutral-400">
+                                <div className="text-xs mt-1 text-neutral-500 dark:text-neutral-400">
                                     {stat.label}
                                 </div>
                             </motion.div>
