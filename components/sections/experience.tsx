@@ -1,0 +1,130 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Code } from "lucide-react";
+import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
+import { experiences } from "@/lib/data/experience";
+import { cn } from "@/lib/utils";
+
+const typeIcons = {
+    work: Briefcase,
+    education: GraduationCap,
+    project: Code,
+};
+
+export function Experience() {
+    return (
+        <SectionWrapper id="experience">
+            <SectionHeader
+                title="Experience"
+                subtitle="My journey in software development"
+            />
+
+            <div className="max-w-3xl mx-auto">
+                {/* Timeline */}
+                <div className="relative">
+                    {/* Timeline Line */}
+                    <div
+                        className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2"
+                        style={{ backgroundColor: "#404040" }}
+                    />
+
+                    {experiences.map((exp, index) => {
+                        const IconComponent = typeIcons[exp.type];
+                        const isLeft = index % 2 === 0;
+
+                        return (
+                            <motion.div
+                                key={exp.id}
+                                initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className={cn(
+                                    "relative mb-12 last:mb-0",
+                                    "pl-20 md:pl-0",
+                                    "md:flex md:items-start",
+                                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                                )}
+                            >
+                                {/* Timeline Node */}
+                                <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-x-1/2">
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.1 + 0.2 }}
+                                        className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm"
+                                        style={{
+                                            backgroundColor: "#171717",
+                                            border: "4px solid #404040",
+                                        }}
+                                    >
+                                        <IconComponent className="w-4 h-4 text-neutral-400" />
+                                    </motion.div>
+                                </div>
+
+                                {/* Content */}
+                                <div
+                                    className={cn(
+                                        "md:w-[calc(50%-2rem)]",
+                                        isLeft ? "md:pr-8 md:text-right" : "md:pl-8"
+                                    )}
+                                >
+                                    <div
+                                        className="p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                                        style={{
+                                            backgroundColor: "#171717",
+                                            border: "1px solid #404040",
+                                        }}
+                                    >
+                                        {/* Period */}
+                                        <span className="text-sm font-medium text-neutral-500">
+                                            {exp.period}
+                                        </span>
+
+                                        {/* Title & Company */}
+                                        <h3 className="text-xl font-bold mt-1 mb-1 text-white">
+                                            {exp.title}
+                                        </h3>
+                                        <p className="font-medium mb-3 text-neutral-400">
+                                            {exp.company}
+                                        </p>
+
+                                        {/* Description */}
+                                        <p className="text-sm mb-4 text-neutral-400">
+                                            {exp.description}
+                                        </p>
+
+                                        {/* Highlights */}
+                                        {exp.highlights && (
+                                            <ul
+                                                className={cn("space-y-2", isLeft && "md:text-right")}
+                                            >
+                                                {exp.highlights.map((highlight, i) => (
+                                                    <li
+                                                        key={i}
+                                                        className={cn(
+                                                            "text-sm flex items-start gap-2 text-neutral-500",
+                                                            isLeft && "md:flex-row-reverse"
+                                                        )}
+                                                    >
+                                                        <span
+                                                            className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                                                            style={{ backgroundColor: "#737373" }}
+                                                        />
+                                                        <span>{highlight}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </div>
+        </SectionWrapper>
+    );
+}

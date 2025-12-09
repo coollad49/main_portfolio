@@ -1,0 +1,131 @@
+export interface Project {
+    id: string;
+    title: string;
+    shortDescription: string;
+    description: string;
+    techStack: string[];
+    category: "ai-ml" | "fullstack" | "tools" | "data";
+    featured: boolean;
+    github?: string;
+    live?: string;
+    image?: string;
+}
+
+export const projects: Project[] = [
+    {
+        id: "exam-ai-grader",
+        title: "Exam AI Grader",
+        shortDescription: "AI-driven system for grading handwritten theory answers automatically",
+        description: "Built an AI-driven system capable of grading handwritten theory answers automatically. Uses Visual Language Models (VLMs) to interpret handwritten content and LLM-based grading agents for structured scoring. Reduced grading time by over 80% compared to manual marking.",
+        techStack: ["Next.js", "FastAPI", "LangGraph", "PostgreSQL", "RabbitMQ", "Redis", "WebSockets", "Docker"],
+        category: "ai-ml",
+        featured: true,
+    },
+    {
+        id: "bursary-dashboard",
+        title: "Bursary Management Dashboard",
+        shortDescription: "Comprehensive financial analytics and student management platform for schools",
+        description: "A modular bursary management system that automates student billing, fee tracking, and reporting. Enables schools to manage students, define fee schedules, track payments, and generate analytics in real-time with role-based access control.",
+        techStack: ["Next.js", "TypeScript", "Prisma", "Supabase", "TailwindCSS", "ShadCN UI"],
+        category: "fullstack",
+        featured: true,
+    },
+    {
+        id: "learn-your-facts",
+        title: "Learn Your Facts",
+        shortDescription: "AI-powered educational blog generator with dynamic content and visuals",
+        description: "Turns any topic in any subject into a fully AI-generated educational blog with relevant visuals. Built as a serverless fullstack application using chained LLM prompts and Pexels API for images.",
+        techStack: ["Next.js", "TypeScript", "OpenRouter", "MongoDB", "Pexels API"],
+        category: "ai-ml",
+        featured: false,
+    },
+    {
+        id: "logbook-generator",
+        title: "Generate Logbook Entries",
+        shortDescription: "AI-powered internship documentation tool for students",
+        description: "Helps students automate their SIWES/internship logbook documentation. Generates realistic day-by-day entries based on project details with customizable output styles. Used by 50+ students.",
+        techStack: ["Next.js", "TypeScript", "ShadCN UI", "OpenRouter", "MongoDB"],
+        category: "ai-ml",
+        featured: false,
+    },
+    {
+        id: "hospital-chatbot",
+        title: "Hospital Support Chatbot",
+        shortDescription: "RAG-powered customer support chatbot for healthcare",
+        description: "Domain-specific chatbot for hospital inquiries using Retrieval-Augmented Generation. Responds to appointment scheduling, visiting hours, and patient support queries with grounded accuracy.",
+        techStack: ["Next.js", "TypeScript", "OpenRouter", "RAG", "AWS EC2", "NGINX"],
+        category: "ai-ml",
+        featured: false,
+    },
+    {
+        id: "task-dashboard",
+        title: "Task Management Dashboard",
+        shortDescription: "Full-stack task tracking app with drag-and-drop functionality",
+        description: "Web application for creating, tracking, and managing tasks with drag-and-drop movement, search, and filtering. Built in 4 days as a technical assessment, learning jQuery and Django REST Framework on the fly.",
+        techStack: ["jQuery", "React", "Django REST", "TailwindCSS", "PostgreSQL"],
+        category: "fullstack",
+        featured: false,
+    },
+    {
+        id: "chapel-automation",
+        title: "Chapel Letter Automation",
+        shortDescription: "Desktop app for automating disciplinary letter generation and printing",
+        description: "Python desktop application that generates and prints disciplinary letters for students from spreadsheet data. Reduced hours of manual work to minutes with one-click bulk processing.",
+        techStack: ["Python", "CustomTkinter", "FPDF", "Pandas", "PyInstaller"],
+        category: "tools",
+        featured: false,
+    },
+    {
+        id: "ecommerce-api",
+        title: "E-Commerce API Server",
+        shortDescription: "Complete backend API with auth, products, and cart functionality",
+        description: "Backend service built to learn low-level Express.js development. Features JWT authentication, product CRUD, cart system, and Swagger documentation with modular architecture.",
+        techStack: ["Node.js", "Express", "TypeScript", "Prisma", "JWT", "Swagger"],
+        category: "fullstack",
+        featured: false,
+    },
+    {
+        id: "flashcard-saas",
+        title: "Flashcard SaaS Generator",
+        shortDescription: "AI-powered flashcard generation platform for interactive learning",
+        description: "Collaborative SaaS project that generates study flashcards from any topic using LLMs. Features interactive flip cards, Google OAuth, and modern landing page design.",
+        techStack: ["Next.js", "Chakra UI", "Google OAuth", "OpenRouter"],
+        category: "ai-ml",
+        featured: false,
+    },
+    {
+        id: "inventory-dashboard",
+        title: "Smart Inventory Dashboard",
+        shortDescription: "AI-assisted inventory management with image recognition",
+        description: "Inventory tracking system with AI-powered product entry through image capture. Automatically detects product name, description, and pricing from photos with real-time analytics.",
+        techStack: ["Next.js", "Chakra UI", "Chart.js", "Vision AI", "MongoDB"],
+        category: "ai-ml",
+        featured: false,
+    },
+    {
+        id: "ml-portfolio",
+        title: "ML Portfolio Projects",
+        shortDescription: "Titanic survival prediction and house price regression models",
+        description: "Machine learning projects for Titanic survival classification and house price prediction using supervised learning techniques, feature engineering, and model fine-tuning.",
+        techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
+        category: "data",
+        featured: false,
+    },
+    {
+        id: "daglore-website",
+        title: "Daglore School Website",
+        shortDescription: "Full-scale website for a private international school",
+        description: "Professional website for Daglore Model International School with Homepage, About, Gallery, Admissions, Contact, and Blog pages. Optimized for SEO and mobile responsiveness.",
+        techStack: ["Next.js", "TypeScript", "TailwindCSS", "ShadCN UI"],
+        category: "fullstack",
+        featured: true,
+    },
+];
+
+export const categories = [
+    { id: "all", label: "All Projects" },
+    { id: "ai-ml", label: "AI / ML" },
+    { id: "fullstack", label: "Full-Stack" },
+    { id: "tools", label: "Tools" },
+    { id: "data", label: "Data Science" },
+];
