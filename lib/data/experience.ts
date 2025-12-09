@@ -37,11 +37,11 @@ export const experiences: Experience[] = [
     },
     {
         id: "university",
-        title: "Computer Science Student",
-        company: "Mountaineer University",
+        title: "Software Engineering Graduate",
+        company: "Mountain Top University",
         type: "education",
-        period: "2020 - Present",
-        description: "Pursuing degree in Computer Science with focus on software engineering and artificial intelligence.",
+        period: "2021 - 2025",
+        description: "Graduated with a BSc in Software Engineering",
         highlights: [
             "Built Chapel Letter Automation System",
             "Completed SIWES internship program",

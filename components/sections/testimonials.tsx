@@ -22,20 +22,6 @@ const testimonials: Testimonial[] = [
         role: "Bursary Department",
         company: "Daglore Model International School",
     },
-    {
-        id: 2,
-        quote: "His ability to integrate AI into practical solutions is remarkable. The exam grading system he built showed real innovation in how we approach educational technology.",
-        name: "Fellowship Mentor",
-        role: "Program Lead",
-        company: "Headstarter AI",
-    },
-    {
-        id: 3,
-        quote: "The logbook generator saved me hours of tedious documentation. It's exactly what every engineering student needs during their industrial training.",
-        name: "Computer Science Student",
-        role: "SIWES Intern",
-        company: "Nigerian University",
-    },
 ];
 
 export function Testimonials() {
