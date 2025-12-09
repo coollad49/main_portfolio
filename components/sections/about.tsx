@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
 import { stats } from "@/lib/data/experience";
 
@@ -27,9 +28,13 @@ export function About() {
 
                         {/* Avatar Container */}
                         <div className="absolute inset-2 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden flex items-center justify-center">
-                            <span className="text-6xl md:text-7xl font-bold text-neutral-400 dark:text-neutral-600">
-                                LAD
-                            </span>
+                            <Image
+                                src="/me.jpg"
+                                alt="Lucas-Adebayo Daniel"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
 
                         {/* Decorative Elements */}

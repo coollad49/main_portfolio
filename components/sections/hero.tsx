@@ -128,7 +128,7 @@ export function Hero() {
                     >
                         <motion.button
                             onClick={handleScrollToProjects}
-                            className="btn btn-primary group"
+                            className="btn btn-primary group flex items-center justify-center gap-2"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -138,7 +138,7 @@ export function Hero() {
                         <motion.a
                             href="/resume.pdf"
                             download
-                            className="btn btn-outline group"
+                            className="btn btn-outline group flex items-center justify-center gap-2"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
