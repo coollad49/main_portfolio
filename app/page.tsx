@@ -8,8 +8,11 @@ import { Experience } from "@/components/sections/experience";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Blog } from "@/components/sections/blog";
 import { Contact } from "@/components/sections/contact";
+import { getBlogPosts } from "@/lib/data/blog";
 
 export default function Home() {
+  const posts = getBlogPosts();
+
   return (
     <main className="relative">
       <Navbar />
@@ -19,7 +22,7 @@ export default function Home() {
       <Projects />
       <Experience />
       <Testimonials />
-      <Blog />
+      <Blog posts={posts} />
       <Contact />
       <Footer />
     </main>

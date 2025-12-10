@@ -1,3 +1,9 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+const postsDirectory = path.join(process.cwd(), "content/blog");
+
 export interface BlogPost {
     id: string;
     slug: string;
@@ -14,100 +20,62 @@ export interface BlogPost {
     image?: string;
 }
 
-export const blogPosts: BlogPost[] = [
-    {
-        id: "1",
-        slug: "building-ai-powered-applications-langgraph",
-        title: "Building AI-Powered Applications with LangGraph",
-        excerpt:
-            "A deep dive into orchestrating complex LLM workflows using LangGraph for production-ready AI systems.",
-        content: `
-# Building AI-Powered Applications with LangGraph
+export function getBlogPosts(): BlogPost[] {
+    // Create directory if it doesn't exist
+    if (!fs.existsSync(postsDirectory)) {
+        return [];
+    }
 
-LangGraph has revolutionized how we build stateful, multi-actor applications with LLMs. In this post, we'll explore...
+    const fileNames = fs.readdirSync(postsDirectory);
+    const allPostsData = fileNames
+        .filter((fileName) => fileName.endsWith(".md"))
+        .map((fileName) => {
+            // Remove ".md" from file name to get id
+            const slug = fileName.replace(/\.md$/, "");
 
-## Why LangGraph?
+            // Read markdown file as string
+            const fullPath = path.join(postsDirectory, fileName);
+            const fileContents = fs.readFileSync(fullPath, "utf8");
 
-Traditional chains are great for simple sequences, but complex agents need state management and cycles...
+            // Use gray-matter to parse the post metadata section
+            const matterResult = matter(fileContents);
 
-## Key Concepts
+            // Combine the data with the id
+            return {
+                id: slug,
+                slug,
+                content: matterResult.content,
+                ...(matterResult.data as Omit<BlogPost, "id" | "slug" | "content">),
+            };
+        });
 
-- **State**: The shared context...
-- **Nodes**: The processing units...
-- **Edges**: The control flow...
+    // Sort posts by date
+    return allPostsData.sort((a, b) => {
+        if (a.date < b.date) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+}
 
-## Conclusion
+export function getBlogPost(slug: string): BlogPost | undefined {
+    const fullPath = path.join(postsDirectory, `${slug}.md`);
 
-LangGraph provides the primitives needed for the next generation of AI agents.
-    `,
-        category: "AI/ML",
-        readTime: "8 min read",
-        date: "Mar 15, 2024",
-        author: {
-            name: "Lucas-Adebayo Daniel",
-            avatar: "/me.jpg",
-        },
-    },
-    {
-        id: "2",
-        slug: "why-nextjs-fullstack",
-        title: "Why I Choose Next.js for Full-Stack Development",
-        excerpt:
-            "Exploring the benefits of building modern web applications with Next.js App Router and server components.",
-        content: `
-# Why I Choose Next.js
+    if (!fs.existsSync(fullPath)) {
+        return undefined;
+    }
 
-Next.js has become the de-facto framework for React development...
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
 
-## Server Components
+    return {
+        id: slug,
+        slug,
+        content: matterResult.content,
+        ...(matterResult.data as Omit<BlogPost, "id" | "slug" | "content">),
+    };
+}
 
-The shift to server components allows us to...
-
-## Routing
-
-The file-system based router...
-
-## Conclusion
-
-For modern full-stack development, Next.js offers the best developer experience.
-    `,
-        category: "Web Dev",
-        readTime: "5 min read",
-        date: "Feb 28, 2024",
-        author: {
-            name: "Lucas-Adebayo Daniel",
-            avatar: "/me.jpg",
-        },
-    },
-    {
-        id: "3",
-        slug: "problem-to-product-philosophy",
-        title: "From Problem to Product: My Development Philosophy",
-        excerpt:
-            "How I approach building software that solves real problems, not just technical challenges.",
-        content: `
-# From Problem to Product
-
-Building software is more than just writing code...
-
-## Understanding the User
-
-Before writing a single line of code...
-
-## The MVP Mindset
-
-Shipping fast and iterating...
-
-## Conclusion
-
-Focus on the problem, not just the technology.
-    `,
-        category: "Thoughts",
-        readTime: "4 min read",
-        date: "Jan 10, 2024",
-        author: {
-            name: "Lucas-Adebayo Daniel",
-            avatar: "/me.jpg",
-        },
-    },
-];
+// For backward compatibility with existing code that imports blogPosts array
+export const blogPosts = getBlogPosts();

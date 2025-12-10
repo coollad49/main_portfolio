@@ -3,12 +3,16 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
-import { blogPosts } from "@/lib/data/blog";
+import type { BlogPost } from "@/lib/data/blog";
 import Link from "next/link";
 
-export function Blog() {
+interface BlogProps {
+    posts: BlogPost[];
+}
+
+export function Blog({ posts }: BlogProps) {
     // Display only the first 3 posts on the homepage
-    const recentPosts = blogPosts.slice(0, 3);
+    const recentPosts = posts.slice(0, 3);
 
     return (
         <SectionWrapper id="blog" fullHeight={false}>

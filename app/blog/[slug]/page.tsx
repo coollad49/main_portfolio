@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { blogPosts } from "@/lib/data/blog";
+import { MarkdownRenderer } from "@/components/markdown-renderer";
+import { getBlogPost, getBlogPosts } from "@/lib/data/blog";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,14 +14,15 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
+    const posts = getBlogPosts();
+    return posts.map((post) => ({
         slug: post.slug,
     }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const post = getBlogPost(slug);
 
     if (!post) {
         notFound();
@@ -62,6 +64,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             {post.title}
                         </h1>
 
+                        {post.image && (
+                            <div className="relative w-full h-64 md:h-96 mb-8 rounded-2xl overflow-hidden">
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </div>
+                        )}
+
                         <div className="flex items-center gap-3 pt-6 border-t border-neutral-100 dark:border-neutral-800">
                             <div className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                                 <Image
@@ -83,13 +97,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </header>
 
                     {/* Content */}
-                    <div className="prose prose-neutral dark:prose-invert max-w-none">
-                        {post.content.split("\n").map((paragraph, index) => (
-                            <p key={index} className="mb-4 text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                                {paragraph}
-                            </p>
-                        ))}
-                    </div>
+                    <MarkdownRenderer content={post.content} />
                 </div>
             </article>
 

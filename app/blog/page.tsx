@@ -1,12 +1,14 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SectionWrapper, SectionHeader } from "@/components/layout/section-wrapper";
-import { blogPosts } from "@/lib/data/blog";
+import { getBlogPosts } from "@/lib/data/blog";
 import { ArrowRight, Clock, Tag, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function BlogPage() {
+    const blogPosts = getBlogPosts();
+
     return (
         <main className="relative min-h-screen bg-white dark:bg-neutral-950">
             <Navbar />
