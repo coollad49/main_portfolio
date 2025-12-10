@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../theme-toggle";
@@ -19,6 +20,9 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
+    const pathname = usePathname();
+    const router = useRouter();
+    const isHomePage = pathname === "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,9 +47,14 @@ export function Navbar() {
 
     const handleNavClick = (href: string) => {
         setIsOpen(false);
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+        if (isHomePage) {
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            // Navigate to homepage with hash
+            router.push("/" + href);
         }
     };
 
@@ -69,11 +78,30 @@ export function Navbar() {
                         e.preventDefault();
                         handleNavClick("#home");
                     }}
-                    className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white"
+                    className="group flex items-center gap-1"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                 >
-                    LAD<span className="text-neutral-500">.</span>
+                    {/* Code bracket accent */}
+                    <span className="text-neutral-400 dark:text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                        {"<"}
+                    </span>
+                    {/* Name */}
+                    <span className="font-bold text-lg tracking-tight">
+                        <span className="text-neutral-900 dark:text-white">Lucas</span>
+                        <span className="text-neutral-400 dark:text-neutral-500">-</span>
+                        <span className="bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white bg-clip-text text-transparent">
+                            Adebayo
+                        </span>
+                        <span className="text-neutral-400 dark:text-neutral-500 ml-1">|</span>
+                        <span className="text-neutral-600 dark:text-neutral-400 ml-1 font-medium">
+                            Daniel
+                        </span>
+                    </span>
+                    {/* Closing bracket with slash */}
+                    <span className="text-neutral-400 dark:text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                        {"/>"}
+                    </span>
                 </motion.a>
 
                 {/* Desktop Navigation */}
