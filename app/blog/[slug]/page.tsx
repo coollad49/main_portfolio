@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
@@ -8,9 +9,33 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 interface BlogPostPageProps {
-    params: Promise<{
+    params: {
         slug: string;
-    }>;
+    };
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+    const post = getBlogPost(params.slug);
+
+    if (!post) {
+        return {};
+    }
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: "article",
+            url: `https://lucasbuilds.tech/blog/${post.slug}`,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+        },
+    };
 }
 
 export async function generateStaticParams() {
@@ -21,7 +46,7 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-    const { slug } = await params;
+    const { slug } = params;
     const post = getBlogPost(slug);
 
     if (!post) {
