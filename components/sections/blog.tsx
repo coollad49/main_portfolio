@@ -46,7 +46,7 @@ export function Blog({ posts }: BlogProps) {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-lg font-bold mb-2 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+                                <h3 className="text-lg font-bold mb-2 text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
                                     {post.title}
                                 </h3>
 

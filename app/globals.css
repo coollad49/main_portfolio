@@ -84,3 +84,16 @@
     linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   background-size: 50px 50px;
 }
+
+/* Button Components */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100;
+}
+
+.btn-outline {
+  @apply border border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800;
+}

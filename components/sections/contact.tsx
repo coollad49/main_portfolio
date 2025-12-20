@@ -67,7 +67,7 @@ export function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-2xl font-bold mb-4">Let&apos;s Connect</h3>
+                    <h3 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">Let&apos;s Connect</h3>
                     <p className="text-neutral-600 dark:text-neutral-400 mb-8">
                         I&apos;m always open to discussing new projects, creative ideas, or
                         opportunities to be part of your vision. Whether you need a full-stack
@@ -81,7 +81,7 @@ export function Contact() {
                         </p>
                         <button
                             onClick={copyEmail}
-                            className="flex items-center gap-2 text-lg font-medium hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors group"
+                            className="flex items-center gap-2 text-lg font-medium text-neutral-900 dark:text-white hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors group"
                         >
                             <Mail className="w-5 h-5" />
                             {socialLinks.email}
@@ -142,7 +142,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="name"
-                                className="block text-sm font-medium mb-2"
+                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
                             >
                                 Name
                             </label>
@@ -161,7 +161,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium mb-2"
+                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
                             >
                                 Email
                             </label>
@@ -180,7 +180,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="message"
-                                className="block text-sm font-medium mb-2"
+                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
                             >
                                 Message
                             </label>

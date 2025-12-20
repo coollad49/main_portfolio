@@ -81,7 +81,7 @@ export function Testimonials() {
                                         {testimonials[current].name.charAt(0)}
                                     </span>
                                 </div>
-                                <h4 className="font-bold text-lg">{testimonials[current].name}</h4>
+                                <h4 className="font-bold text-lg text-neutral-900 dark:text-white">{testimonials[current].name}</h4>
                                 <p className="text-neutral-600 dark:text-neutral-400 text-sm">
                                     {testimonials[current].role} at {testimonials[current].company}
                                 </p>

@@ -53,7 +53,7 @@ export function Hero() {
     return (
         <section
             id="home"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-950"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white/80 dark:bg-neutral-950/80"
         >
             {/* 3D Background */}
             <Suspense fallback={null}>
