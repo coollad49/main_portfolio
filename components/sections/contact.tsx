@@ -68,7 +68,7 @@ export function Contact() {
                     viewport={{ once: true }}
                 >
                     <h3 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">Let&apos;s Connect</h3>
-                    <p className="text-neutral-600 dark:text-neutral-400 mb-8">
+                    <p className="text-neutral-600 dark:text-neutral-200 mb-8">
                         I&apos;m always open to discussing new projects, creative ideas, or
                         opportunities to be part of your vision. Whether you need a full-stack
                         developer, an AI solution, or just technical advice — reach out!
@@ -76,7 +76,7 @@ export function Contact() {
 
                     {/* Email */}
                     <div className="mb-8">
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+                        <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                             Email me at
                         </p>
                         <button
@@ -106,7 +106,7 @@ export function Contact() {
 
                     {/* Social Links */}
                     <div>
-                        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                        <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-4">
                             Or find me on
                         </p>
                         <div className="flex gap-3">
@@ -118,7 +118,7 @@ export function Contact() {
                                     rel="noopener noreferrer"
                                     className={cn(
                                         "p-4 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700",
-                                        "text-neutral-600 dark:text-neutral-400 transition-all duration-200",
+                                        "text-neutral-600 dark:text-neutral-200 transition-all duration-200",
                                         social.color
                                     )}
                                     whileHover={{ scale: 1.05, y: -4 }}
@@ -142,7 +142,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="name"
-                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
+                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
                             >
                                 Name
                             </label>
@@ -153,7 +153,7 @@ export function Contact() {
                                 value={formState.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-neutral-400 dark:focus:border-neutral-600 focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all"
                                 placeholder="Your name"
                             />
                         </div>
@@ -161,7 +161,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
+                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
                             >
                                 Email
                             </label>
@@ -172,7 +172,7 @@ export function Contact() {
                                 value={formState.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-neutral-400 dark:focus:border-neutral-600 focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all"
                                 placeholder="your@email.com"
                             />
                         </div>
@@ -180,7 +180,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="message"
-                                className="block text-sm font-medium mb-2 text-neutral-700 dark:text-neutral-300"
+                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
                             >
                                 Message
                             </label>
@@ -191,7 +191,7 @@ export function Contact() {
                                 onChange={handleChange}
                                 required
                                 rows={5}
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:border-neutral-400 dark:focus:border-neutral-600 focus:outline-none transition-colors resize-none"
+                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all resize-none"
                                 placeholder="Tell me about your project..."
                             />
                         </div>
