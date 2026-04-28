@@ -67,7 +67,7 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
                         alt={project.title}
                         fill
                         className={cn(
-                            "object-cover transition-transform duration-500 ease-out",
+                            "object-center transition-transform duration-500 ease-out",
                             isHovered && "scale-105"
                         )}
                         sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
@@ -80,21 +80,21 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-transparent to-transparent" />
 
                 {/* Featured badge */}
-                {project.featured && (
+                {/* {project.featured && (
                     <span className="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/10">
                         Featured
                     </span>
-                )}
+                )} */}
 
                 {/* Category badge */}
-                <span
+                {/* <span
                     className={cn(
                         "absolute top-3 right-3 inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border",
                         categoryColors[project.category]
                     )}
                 >
                     {categoryLabels[project.category]}
-                </span>
+                </span> */}
             </div>
 
             {/* Content */}

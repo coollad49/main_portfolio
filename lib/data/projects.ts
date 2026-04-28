@@ -132,6 +132,28 @@ export const projects: Project[] = [
         featured: true,
         image: "/projects/daglore-website.png",
     },
+    {
+        id: "exacraft",
+        title: "ExaCraft",
+        shortDescription: "Assessment ecosystem for Nigerian teachers, students, and schools",
+        description: "ExaCraft is a complete assessment platform built for Nigerian education — curriculum-aligned question banks (WAEC, NECO, JAMB), fast exam-paper generation with instant PDF export, performance analytics, gamification, and school-wide management. Supports offline-safe exam attempts and a realistic JAMB mock simulator.",
+        techStack: ["Next.js", "Convex", "TypeScript"],
+        category: "fullstack",
+        featured: true,
+        live: "https://exacraft.net",
+        image: "/projects/exacraft.png",
+    },
+    {
+        id: "dossier",
+        title: "Dossier",
+        shortDescription: "ATS-friendly resume builder and career profile manager",
+        description: "Dossier stores a single master career profile, generates targeted ATS-compliant PDF/DOCX resumes in seconds, and removes formatting friction so users can focus on content.",
+        techStack: ["Next.js", "Convex", "TypeScript"],
+        category: "fullstack",
+        featured: true,
+        live: "https://resume-builder-system.vercel.app/",
+        image: "/projects/dossier.png",
+    },
 ];
 
 export const categories = [
