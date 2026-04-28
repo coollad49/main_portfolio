@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
-import { ProjectCard3D } from "../3d/project-card-3d";
+import { ProjectCard } from "../3d/project-card-3d";
 import { projects, categories } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -15,11 +15,14 @@ export function Projects() {
             ? projects
             : projects.filter((p) => p.category === activeCategory);
 
+    const featuredProjects = filteredProjects.filter((p) => p.featured);
+    const otherProjects = filteredProjects.filter((p) => !p.featured);
+
     return (
-        <SectionWrapper id="projects" fullHeight={false}>
+        <SectionWrapper id="projects" fullHeight={false} className="bg-neutral-950">
             <SectionHeader
-                title="Featured Projects"
-                subtitle="A selection of projects that showcase my problem-solving approach"
+                title="Selected Work"
+                subtitle="Projects that demonstrate technical depth and problem-solving"
             />
 
             {/* Category Filters */}
@@ -27,50 +30,68 @@ export function Projects() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-wrap justify-center gap-2 mb-12"
+                className="flex flex-wrap justify-center gap-2 mb-14"
             >
                 {categories.map((category) => (
-                    <motion.button
+                    <button
                         key={category.id}
                         onClick={() => setActiveCategory(category.id)}
                         className={cn(
-                            "px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 border",
+                            "px-5 py-2.5 text-sm font-medium rounded-full transition-all duration-200 border",
                             activeCategory === category.id
-                                ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 border-neutral-900 dark:border-white"
-                                : "bg-white text-neutral-600 border-neutral-200 hover:bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700"
+                                ? "bg-white text-neutral-900 border-white"
+                                : "bg-transparent text-neutral-400 border-neutral-800 hover:border-neutral-600 hover:text-neutral-200"
                         )}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                     >
                         {category.label}
-                    </motion.button>
+                    </button>
                 ))}
             </motion.div>
 
             {/* Projects Grid */}
-            <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <AnimatePresence mode="popLayout">
-                    {filteredProjects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            layout
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.3, delay: index * 0.05 }}
-                        >
-                            <ProjectCard3D project={project} index={index} />
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
-            </motion.div>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeCategory}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    {/* Featured Projects */}
+                    {featuredProjects.length > 0 && (
+                        <div className="grid md:grid-cols-2 gap-5 mb-5">
+                            {featuredProjects.map((project, index) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    project={project}
+                                    index={index}
+                                    featured
+                                />
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Other Projects */}
+                    {otherProjects.length > 0 && (
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {otherProjects.map((project, index) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    project={project}
+                                    index={index + featuredProjects.length}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </motion.div>
+            </AnimatePresence>
 
             {/* Projects Count */}
             <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="text-center mt-8 text-sm text-neutral-500 dark:text-neutral-400"
+                className="text-center mt-10 text-sm text-neutral-600"
             >
                 Showing {filteredProjects.length} of {projects.length} projects
             </motion.p>

@@ -20,6 +20,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "FastAPI", "LangGraph", "PostgreSQL", "RabbitMQ", "Redis", "WebSockets", "Docker"],
         category: "ai-ml",
         featured: true,
+        image: "/projects/exam-ai-grader.png",
     },
     {
         id: "bursary-dashboard",
@@ -29,6 +30,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "Prisma", "Supabase", "TailwindCSS", "ShadCN UI"],
         category: "fullstack",
         featured: true,
+        image: "/projects/bursary-dashboard.png",
     },
     {
         id: "learn-your-facts",
@@ -38,6 +40,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "OpenRouter", "MongoDB", "Pexels API"],
         category: "ai-ml",
         featured: false,
+        image: "/projects/learn-your-facts.svg",
     },
     {
         id: "logbook-generator",
@@ -47,6 +50,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "ShadCN UI", "OpenRouter", "MongoDB"],
         category: "ai-ml",
         featured: false,
+        image: "/projects/logbook-generator.svg",
     },
     {
         id: "hospital-chatbot",
@@ -56,6 +60,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "OpenRouter", "RAG", "AWS EC2", "NGINX"],
         category: "ai-ml",
         featured: false,
+        image: "/projects/hospital-chatbot.svg",
     },
     {
         id: "task-dashboard",
@@ -65,6 +70,7 @@ export const projects: Project[] = [
         techStack: ["jQuery", "React", "Django REST", "TailwindCSS", "PostgreSQL"],
         category: "fullstack",
         featured: false,
+        image: "/projects/task-dashboard.svg",
     },
     {
         id: "chapel-automation",
@@ -74,6 +80,7 @@ export const projects: Project[] = [
         techStack: ["Python", "CustomTkinter", "FPDF", "Pandas", "PyInstaller"],
         category: "tools",
         featured: false,
+        image: "/projects/chapel-automation.svg",
     },
     {
         id: "ecommerce-api",
@@ -83,6 +90,7 @@ export const projects: Project[] = [
         techStack: ["Node.js", "Express", "TypeScript", "Prisma", "JWT", "Swagger"],
         category: "fullstack",
         featured: false,
+        image: "/projects/ecommerce-api.svg",
     },
     {
         id: "flashcard-saas",
@@ -92,6 +100,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "Chakra UI", "Google OAuth", "OpenRouter"],
         category: "ai-ml",
         featured: false,
+        image: "/projects/flashcard-saas.svg",
     },
     {
         id: "inventory-dashboard",
@@ -101,6 +110,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "Chakra UI", "Chart.js", "Vision AI", "MongoDB"],
         category: "ai-ml",
         featured: false,
+        image: "/projects/inventory-dashboard.svg",
     },
     {
         id: "ml-portfolio",
@@ -110,6 +120,7 @@ export const projects: Project[] = [
         techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
         category: "data",
         featured: false,
+        image: "/projects/ml-portfolio.svg",
     },
     {
         id: "daglore-website",
@@ -119,6 +130,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "TailwindCSS", "ShadCN UI"],
         category: "fullstack",
         featured: true,
+        image: "/projects/daglore-website.png",
     },
 ];
 

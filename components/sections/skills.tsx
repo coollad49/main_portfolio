@@ -14,13 +14,13 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Skills() {
     return (
-        <SectionWrapper id="skills">
+        <SectionWrapper id="skills" className="bg-neutral-950">
             <SectionHeader
                 title="Skills & Tech Stack"
                 subtitle="Technologies I use to bring ideas to life"
             />
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-5">
                 {skillCategories.map((category, categoryIndex) => {
                     const IconComponent = iconMap[category.icon] || Layout;
 
@@ -33,13 +33,13 @@ export function Skills() {
                             transition={{ delay: categoryIndex * 0.1 }}
                             className="group"
                         >
-                            <div className="h-full p-6 rounded-2xl transition-all duration-300 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 card-hover">
+                            <div className="h-full p-6 rounded-2xl transition-all duration-300 bg-neutral-900 border border-neutral-800 hover:border-neutral-700">
                                 {/* Category Header */}
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-colors">
-                                        <IconComponent className="w-6 h-6 text-neutral-700 dark:text-neutral-300" />
+                                    <div className="p-3 rounded-xl bg-neutral-800 group-hover:bg-neutral-700 transition-colors">
+                                        <IconComponent className="w-6 h-6 text-neutral-300" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
+                                    <h3 className="text-xl font-bold text-white">
                                         {category.title}
                                     </h3>
                                 </div>
@@ -56,7 +56,7 @@ export function Skills() {
                                                 delay: categoryIndex * 0.1 + skillIndex * 0.03,
                                             }}
                                             whileHover={{ scale: 1.05, y: -2 }}
-                                            className="px-4 py-2 text-sm font-medium rounded-lg cursor-default transition-all duration-200 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-transparent hover:border-neutral-300 dark:hover:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                                            className="px-4 py-2 text-sm font-medium rounded-lg cursor-default transition-all duration-200 bg-neutral-800 text-neutral-300 border border-transparent hover:border-neutral-600 hover:bg-neutral-700"
                                         >
                                             {skill.name}
                                         </motion.span>
@@ -74,7 +74,7 @@ export function Skills() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="text-center mt-8 text-sm text-neutral-500 dark:text-neutral-400"
+                className="text-center mt-8 text-sm text-neutral-500"
             >
                 ...and always learning more! Currently exploring advanced LLM
                 orchestration and edge computing.

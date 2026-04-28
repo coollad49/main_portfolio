@@ -7,27 +7,28 @@ import { stats } from "@/lib/data/experience";
 
 export function About() {
     return (
-        <SectionWrapper id="about">
+        <SectionWrapper id="about" className="bg-neutral-900">
             <SectionHeader
-                title="About Me"
-                subtitle="Building solutions that make a real difference"
+                title="About"
+                subtitle="The craft behind the code"
             />
 
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
                 {/* Avatar / Visual */}
                 <motion.div
                     initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="flex justify-center"
+                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                    className="lg:col-span-2 flex justify-center lg:justify-start"
                 >
-                    <div className="relative w-64 h-64 md:w-80 md:h-80">
-                        {/* Gradient Ring */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-300 to-neutral-600 dark:from-neutral-600 dark:to-neutral-800 animate-pulse" />
+                    <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-full lg:h-auto lg:aspect-square max-w-sm">
+                        {/* Subtle ring */}
+                        <div className="absolute inset-0 rounded-2xl border border-neutral-700/50" />
+                        <div className="absolute -inset-3 rounded-2xl border border-neutral-800/30" />
 
                         {/* Avatar Container */}
-                        <div className="absolute inset-2 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden flex items-center justify-center">
+                        <div className="absolute inset-0 rounded-2xl bg-neutral-800 overflow-hidden">
                             <Image
                                 src="/me.jpg"
                                 alt="Lucas-Adebayo Daniel"
@@ -36,18 +37,6 @@ export function About() {
                                 priority
                             />
                         </div>
-
-                        {/* Decorative Elements */}
-                        <motion.div
-                            className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-neutral-300/50 dark:bg-neutral-700/50 blur-xl"
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-                            transition={{ duration: 4, repeat: Infinity }}
-                        />
-                        <motion.div
-                            className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-neutral-400/30 dark:bg-neutral-600/30 blur-xl"
-                            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.6, 0.3] }}
-                            transition={{ duration: 5, repeat: Infinity }}
-                        />
                     </div>
                 </motion.div>
 
@@ -56,20 +45,17 @@ export function About() {
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 1, 0.5, 1] }}
+                    className="lg:col-span-3"
                 >
-                    <h3 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">
-                        Hi, I&apos;m Daniel! 👋
-                    </h3>
-
-                    <div className="space-y-4 text-neutral-600 dark:text-neutral-400">
-                        <p>
+                    <div className="space-y-5 text-neutral-400 leading-relaxed">
+                        <p className="text-lg text-neutral-200">
                             I&apos;m a{" "}
-                            <span className="font-medium text-neutral-900 dark:text-white">
+                            <span className="text-white font-medium">
                                 Full-Stack Developer
                             </span>{" "}
                             and{" "}
-                            <span className="font-medium text-neutral-900 dark:text-white">
+                            <span className="text-white font-medium">
                                 AI Engineer
                             </span>{" "}
                             from Nigeria, passionate about building intelligent solutions that
@@ -80,11 +66,11 @@ export function About() {
                             My journey started with a simple belief: if there&apos;s a tedious
                             process that can be automated, it should be. This mindset has led
                             me to build everything from{" "}
-                            <span className="font-medium text-neutral-900 dark:text-white">
+                            <span className="text-neutral-300">
                                 AI-powered exam graders
                             </span>{" "}
                             to{" "}
-                            <span className="font-medium text-neutral-900 dark:text-white">
+                            <span className="text-neutral-300">
                                 school management systems
                             </span>
                             .
@@ -94,36 +80,31 @@ export function About() {
                             I specialize in combining modern web technologies with AI
                             capabilities to create products that are not just functional, but
                             genuinely useful. Whether it&apos;s integrating LLMs, building RAG
-                            pipelines, or crafting beautiful interfaces — I love every part of
+                            pipelines, or crafting beautiful interfaces, I love every part of
                             the development process.
                         </p>
                     </div>
 
-                    {/* Stats */}
+                    {/* Stats - inline, not cards */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                        className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8"
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="mt-10 pt-8 border-t border-neutral-800"
                     >
-                        {stats.map((stat, i) => (
-                            <motion.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.5 + i * 0.1 }}
-                                className="text-center p-4 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700"
-                            >
-                                <div className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">
-                                    {stat.value}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
+                            {stats.map((stat) => (
+                                <div key={stat.label}>
+                                    <div className="text-2xl md:text-3xl font-bold text-white tabular-nums">
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-sm mt-1 text-neutral-500">
+                                        {stat.label}
+                                    </div>
                                 </div>
-                                <div className="text-xs mt-1 text-neutral-500 dark:text-neutral-400">
-                                    {stat.label}
-                                </div>
-                            </motion.div>
-                        ))}
+                            ))}
+                        </div>
                     </motion.div>
                 </motion.div>
             </div>

@@ -2,62 +2,34 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+type Theme = "dark";
 
 interface ThemeContextType {
     theme: Theme;
     setTheme: (theme: Theme) => void;
-    resolvedTheme: "dark" | "light";
+    resolvedTheme: "dark";
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [theme, setTheme] = useState<Theme>("dark");
-    const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">("dark");
+    const [resolvedTheme, setResolvedTheme] = useState<"dark">("dark");
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
-        const stored = localStorage.getItem("theme") as Theme | null;
-        if (stored) {
-            setTheme(stored);
-        }
     }, []);
 
     useEffect(() => {
         if (!mounted) return;
 
         const root = document.documentElement;
-
-        const getSystemTheme = (): "dark" | "light" => {
-            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        };
-
-        const applyTheme = (t: Theme) => {
-            const resolved = t === "system" ? getSystemTheme() : t;
-            setResolvedTheme(resolved);
-
-            root.classList.remove("light", "dark");
-            root.classList.add(resolved);
-            localStorage.setItem("theme", t);
-        };
-
-        applyTheme(theme);
-
-        // Listen for system theme changes
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        const handleChange = () => {
-            if (theme === "system") {
-                applyTheme("system");
-            }
-        };
-
-        mediaQuery.addEventListener("change", handleChange);
-        return () => mediaQuery.removeEventListener("change", handleChange);
+        root.classList.remove("light");
+        root.classList.add("dark");
+        setResolvedTheme("dark");
     }, [theme, mounted]);
 
-    // Provide context even before mounting (with defaults)
     const value: ThemeContextType = {
         theme,
         setTheme,
@@ -74,11 +46,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 export function useTheme() {
     const context = useContext(ThemeContext);
     if (context === undefined) {
-        // Return safe defaults during SSR or when not wrapped in provider
         return {
-            theme: "system" as Theme,
+            theme: "dark" as Theme,
             setTheme: () => { },
-            resolvedTheme: "dark" as "dark" | "light",
+            resolvedTheme: "dark" as "dark",
         };
     }
     return context;

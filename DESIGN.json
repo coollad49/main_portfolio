@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-28T00:00:00Z",
+  "title": "Design System: Lucas-Adebayo Daniel Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Blueprint Ink",
+        "canonical": "oklch(20% 0.005 40)",
+        "tonalRamp": [
+          "oklch(95% 0.003 40)",
+          "oklch(88% 0.004 40)",
+          "oklch(78% 0.004 40)",
+          "oklch(68% 0.005 40)",
+          "oklch(58% 0.005 40)",
+          "oklch(45% 0.005 40)",
+          "oklch(32% 0.005 40)",
+          "oklch(20% 0.005 40)"
+        ]
+      },
+      "charcoal": {
+        "role": "neutral",
+        "displayName": "Blueprint Charcoal",
+        "canonical": "oklch(28% 0.005 40)",
+        "tonalRamp": [
+          "oklch(95% 0.003 40)",
+          "oklch(88% 0.004 40)",
+          "oklch(78% 0.004 40)",
+          "oklch(68% 0.005 40)",
+          "oklch(58% 0.005 40)",
+          "oklch(45% 0.005 40)",
+          "oklch(35% 0.005 40)",
+          "oklch(28% 0.005 40)"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Blueprint Graphite",
+        "canonical": "oklch(48% 0.005 40)",
+        "tonalRamp": [
+          "oklch(95% 0.003 40)",
+          "oklch(88% 0.004 40)",
+          "oklch(78% 0.004 40)",
+          "oklch(65% 0.005 40)",
+          "oklch(55% 0.005 40)",
+          "oklch(48% 0.005 40)",
+          "oklch(38% 0.005 40)",
+          "oklch(28% 0.005 40)"
+        ]
+      },
+      "stone": {
+        "role": "neutral",
+        "displayName": "Blueprint Stone",
+        "canonical": "oklch(70% 0.005 40)",
+        "tonalRamp": [
+          "oklch(95% 0.003 40)",
+          "oklch(88% 0.004 40)",
+          "oklch(78% 0.004 40)",
+          "oklch(70% 0.005 40)",
+          "oklch(60% 0.005 40)",
+          "oklch(50% 0.005 40)",
+          "oklch(40% 0.005 40)",
+          "oklch(30% 0.005 40)"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Blueprint Mist",
+        "canonical": "oklch(90% 0.005 40)",
+        "tonalRamp": [
+          "oklch(98% 0.002 40)",
+          "oklch(95% 0.003 40)",
+          "oklch(92% 0.004 40)",
+          "oklch(90% 0.005 40)",
+          "oklch(82% 0.005 40)",
+          "oklch(72% 0.005 40)",
+          "oklch(62% 0.005 40)",
+          "oklch(50% 0.005 40)"
+        ]
+      },
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Blueprint Parchment",
+        "canonical": "oklch(96% 0.005 40)",
+        "tonalRamp": [
+          "oklch(99% 0.002 40)",
+          "oklch(98% 0.003 40)",
+          "oklch(96% 0.005 40)",
+          "oklch(92% 0.005 40)",
+          "oklch(86% 0.005 40)",
+          "oklch(76% 0.005 40)",
+          "oklch(65% 0.005 40)",
+          "oklch(55% 0.005 40)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Blueprint Canvas",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(100% 0 0)",
+          "oklch(98% 0.002 40)",
+          "oklch(95% 0.003 40)",
+          "oklch(90% 0.005 40)",
+          "oklch(82% 0.005 40)",
+          "oklch(72% 0.005 40)",
+          "oklch(60% 0.005 40)",
+          "oklch(48% 0.005 40)"
+        ]
+      },
+      "warm-tint": {
+        "role": "neutral",
+        "displayName": "Warm Tint",
+        "canonical": "oklch(97% 0.008 40)",
+        "tonalRamp": [
+          "oklch(99% 0.003 40)",
+          "oklch(98% 0.005 40)",
+          "oklch(97% 0.008 40)",
+          "oklch(94% 0.008 40)",
+          "oklch(88% 0.008 40)",
+          "oklch(80% 0.008 40)",
+          "oklch(70% 0.008 40)",
+          "oklch(58% 0.008 40)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. The largest moment on the page. Used once per view."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles. Always with -0.02em letter-spacing."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, subheadings within sections, form section headers."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, descriptions, general content. Max line length 65-75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation links, buttons, tags, metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
+        "purpose": "Default card shadow. Barely visible but enough to separate from background."
+      },
+      {
+        "name": "lifted",
+        "value": "0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 10px -2px rgba(0,0,0,0.05)",
+        "purpose": "Hover state for cards and interactive surfaces."
+      },
+      {
+        "name": "floating",
+        "value": "0 20px 40px -10px rgba(0,0,0,0.15), 0 8px 16px -4px rgba(0,0,0,0.08)",
+        "purpose": "Modal surfaces, dropdowns, or any element breaking the z-plane."
+      },
+      {
+        "name": "dark-rest",
+        "value": "0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)",
+        "purpose": "Dark mode default card shadow."
+      },
+      {
+        "name": "dark-lifted",
+        "value": "0 10px 25px -5px rgba(0,0,0,0.4), 0 4px 10px -2px rgba(0,0,0,0.25)",
+        "purpose": "Dark mode hover state."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions."
+      },
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Entrance animations. Smooth deceleration."
+      },
+      {
+        "name": "duration-fast",
+        "value": "0.2s",
+        "purpose": "Button hovers, color transitions, micro-interactions."
+      },
+      {
+        "name": "duration-medium",
+        "value": "0.3s",
+        "purpose": "Card hover transforms, layout transitions."
+      },
+      {
+        "name": "duration-slow",
+        "value": "0.6s",
+        "purpose": "Scroll-triggered entrance animations."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1400px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call-to-action button. High contrast, tactile response.",
+      "html": "<button class=\"ds-btn-primary\">View My Work</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #171717; color: #ffffff; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.4; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #262626; transform: scale(1.02); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #a3a3a3; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action. Lower emphasis than primary.",
+      "html": "<button class=\"ds-btn-outline\">Download Resume</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: #525252; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.4; padding: 12px 24px; border: 1px solid #e5e5e5; border-radius: 8px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-outline:hover { background: #f5f5f5; border-color: #d4d4d4; transform: scale(1.02); } .ds-btn-outline:active { transform: scale(0.98); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #a3a3a3; }"
+    },
+    {
+      "name": "Project Card 3D",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Signature component with 3D perspective tilt on hover. Demonstrates technical craft.",
+      "html": "<div class=\"ds-card-3d\"><div class=\"ds-card-3d-inner\"><div class=\"ds-card-3d-header\"><span class=\"ds-card-3d-tag\">AI / ML</span><span class=\"ds-card-3d-featured\">Featured</span></div><h3 class=\"ds-card-3d-title\">Exam AI Grader</h3><p class=\"ds-card-3d-desc\">AI-driven system for grading handwritten theory answers automatically.</p><div class=\"ds-card-3d-tech\"><span class=\"ds-card-3d-chip\">Next.js</span><span class=\"ds-card-3d-chip\">FastAPI</span></div><div class=\"ds-card-3d-links\"><a href=\"#\" class=\"ds-card-3d-link\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\"/><path d=\"M9 18c-4.51 2-5-2-7-2\"/></svg> Code</a></div></div></div>",
+      "css": ".ds-card-3d { perspective: 1000px; cursor: pointer; height: 100%; } .ds-card-3d-inner { position: relative; height: 100%; padding: 24px; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04); transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; } .ds-card-3d:hover .ds-card-3d-inner { box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 4px 10px -2px rgba(0,0,0,0.05); border-color: #d4d4d4; transform: translateY(-4px); } .ds-card-3d-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; } .ds-card-3d-tag { display: inline-block; padding: 4px 12px; font-size: 0.75rem; font-weight: 500; border-radius: 9999px; background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; } .ds-card-3d-featured { display: inline-block; padding: 4px 8px; font-size: 0.75rem; font-weight: 500; border-radius: 9999px; background: #171717; color: #ffffff; } .ds-card-3d-title { font-family: Inter, system-ui, sans-serif; font-size: 1.25rem; font-weight: 700; line-height: 1.3; color: #171717; margin-bottom: 8px; } .ds-card-3d-desc { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.6; color: #525252; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; flex-grow: 1; } .ds-card-3d-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; margin-top: auto; } .ds-card-3d-chip { display: inline-block; padding: 4px 8px; font-size: 0.75rem; font-weight: 400; border-radius: 6px; background: #f5f5f5; color: #525252; } .ds-card-3d-links { display: flex; gap: 12px; padding-top: 12px; border-top: 1px solid #f5f5f5; } .ds-card-3d-link { display: inline-flex; align-items: center; gap: 4px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; color: #525252; text-decoration: none; transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-card-3d-link:hover { color: #171717; } .ds-card-3d-link svg { width: 16px; height: 16px; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text input with clear focus state and generous padding.",
+      "html": "<div class=\"ds-input-wrapper\"><label class=\"ds-input-label\" for=\"name\">Name</label><input class=\"ds-input\" id=\"name\" type=\"text\" placeholder=\"Your name\" /></div>",
+      "css": ".ds-input-wrapper { display: flex; flex-direction: column; gap: 8px; } .ds-input-label { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.4; color: #262626; } .ds-input { width: 100%; padding: 12px 16px; font-family: Inter, system-ui, sans-serif; font-size: 1rem; font-weight: 400; line-height: 1.6; color: #171717; background: #ffffff; border: 1px solid #e5e5e5; border-radius: 12px; transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-input::placeholder { color: rgba(163, 163, 163, 0.7); } .ds-input:hover { border-color: #d4d4d4; } .ds-input:focus { outline: none; border-color: #a3a3a3; box-shadow: 0 0 0 1px #a3a3a3; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill-shaped toggle for filtering content. Active state inverts to high contrast.",
+      "html": "<button class=\"ds-chip ds-chip-active\">All Projects</button><button class=\"ds-chip\">AI / ML</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; justify-content: center; padding: 8px 16px; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.4; color: #525252; background: #f5f5f5; border: 1px solid transparent; border-radius: 9999px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-chip:hover { background: #e5e5e5; transform: scale(1.02); } .ds-chip:active { transform: scale(0.98); } .ds-chip-active { background: #171717; color: #ffffff; border-color: #171717; } .ds-chip-active:hover { background: #262626; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Fixed header with glass effect on scroll. Transparent at top, frosted on scroll.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-logo\">Lucas-Adebayo</a><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link ds-nav-link-active\">Home</a><a href=\"#\" class=\"ds-nav-link\">Projects</a><a href=\"#\" class=\"ds-nav-link\">Contact</a></div></nav>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: transparent; transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-scrolled { padding: 12px 24px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #e5e5e5; } .ds-nav-logo { font-family: Inter, system-ui, sans-serif; font-size: 1.125rem; font-weight: 700; line-height: 1.3; color: #171717; text-decoration: none; letter-spacing: -0.02em; } .ds-nav-links { display: flex; align-items: center; gap: 32px; } .ds-nav-link { position: relative; font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.4; color: #525252; text-decoration: none; transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-link:hover { color: #171717; transform: translateY(-2px); } .ds-nav-link-active { color: #171717; } .ds-nav-link-active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #171717; border-radius: 9999px; }"
+    },
+    {
+      "name": "Category Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Functional color-coded tag for project categories. Low saturation to maintain neutral-first strategy.",
+      "html": "<span class=\"ds-cat-tag ds-cat-ai\">AI / ML</span><span class=\"ds-cat-tag ds-cat-fullstack\">Full-Stack</span>",
+      "css": ".ds-cat-tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; line-height: 1.4; border-radius: 9999px; border: 1px solid transparent; } .ds-cat-ai { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; } .ds-cat-fullstack { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; } .ds-cat-tools { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; } .ds-cat-data { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Architect's Blueprint",
+    "overview": "This portfolio is structured like a well-engineered blueprint: every element has a purpose, every spacing value is measured, and the overall composition reads with quiet authority. The design rejects decoration for its own sake. Instead, confidence comes from precision — typography that holds the grid, surfaces that lift with physical logic, and motion that responds to the user's intent rather than performing for attention. The atmosphere is dark-by-default (the blueprint paper at night), with a fully realized light mode for daytime browsing. Both themes share the same structural logic: high contrast for readability, generous whitespace for breathing room, and tactile feedback on every interactive element. The interface should feel like running your hand over machined aluminum: cool, precise, and satisfying.",
+    "keyCharacteristics": [
+      "Structural precision over decorative flourish",
+      "Neutral-warm palette with a single functional accent reserved for CTAs",
+      "Tactile, responsive components with clear physical affordance",
+      "Dimensional elevation: surfaces lift and cast shadows with purpose",
+      "Motion serves wayfinding and hierarchy, never spectacle"
+    ],
+    "rules": [
+      {
+        "name": "The Neutrals-First Rule",
+        "body": "The brand palette contains zero saturated color. Any hue that appears must earn its place through functional necessity (category tags) or extreme restraint (accent on ≤5% of any screen). The interface's confidence comes from its refusal to shout.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Inter handles every typographic role. Differentiation comes from size and weight, not family. This restraint is intentional: it keeps the system cohesive and avoids the 'font salad' effect of mixed families.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Nested-Cards Rule",
+        "body": "Cards may contain content, lists, and media, but they never contain other cards. Nested elevation is confusing and visually noisy. If a card needs internal grouping, use tonal shifts (background color changes) or spacing, not additional card containers.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the palette neutral-first. Warm-tinted grays are the foundation; any color must justify its presence functionally.",
+      "Do use dimensional shadows for cards and elevated surfaces. Surfaces should feel physically lifted.",
+      "Do provide tactile feedback on all interactive elements: hover lift, press scale, visible focus rings.",
+      "Do respect prefers-reduced-motion. Disable 3D tilt and simplify entrance animations for users who request reduced motion.",
+      "Do cap body text line length at 65–75ch for optimal readability.",
+      "Do use 16px (rounded-2xl) for cards and 8px (rounded-lg) for buttons consistently."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text with gradients). The navbar logo currently violates this; replace with a solid color treatment.",
+      "Don't use glassmorphism as decoration. Backdrop blur is acceptable only for the navbar's scroll state, where it serves a functional purpose (maintaining readability over content).",
+      "Don't create nested cards. Use tonal background shifts or spacing to group content within a card.",
+      "Don't use side-stripe borders (border-left or border-right > 1px as colored accents). Rewrite with full borders, background tints, or leading icons.",
+      "Don't use the hero-metric template (big number, small label, supporting stats, gradient accent). The current stats grid in the About section is acceptable because it uses tonal cards without gradients, but avoid making it the visual focus.",
+      "Don't create identical card grids without variation. If every card has the same icon + heading + text pattern, the layout feels templated.",
+      "Don't use modals as a first solution. Exhaust inline, progressive disclosure, and expandable alternatives first.",
+      "Don't use em dashes in copy. Use commas, colons, semicolons, periods, or parentheses instead.",
+      "Don't let the interface feel corporate or impersonal. Warmth comes from human copy, unconventional layout choices, and details that show craft."
+    ]
+  }
+}

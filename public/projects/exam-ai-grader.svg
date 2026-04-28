@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="grad-exam-ai-grader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="grid-exam-ai-grader" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#grad-exam-ai-grader)" />
+  <rect width="800" height="500" fill="url(#grid-exam-ai-grader)" />
+  <circle cx="248" cy="408" r="108" fill="#a855f7" opacity="0.06"/>
+  <circle cx="385" cy="157" r="81" fill="#a855f7" opacity="0.07"/>
+  <circle cx="522" cy="246" r="54" fill="#a855f7" opacity="0.03"/>
+  <circle cx="659" cy="335" r="107" fill="#a855f7" opacity="0.04"/>
+  <circle cx="196" cy="84" r="80" fill="#a855f7" opacity="0.05"/>
+  <circle cx="333" cy="173" r="53" fill="#a855f7" opacity="0.06"/>
+  <line x1="548" y1="348" x2="636" y2="446" stroke="#a855f7" stroke-width="1" opacity="0.04"/>
+  <line x1="595" y1="419" x2="676" y2="504" stroke="#a855f7" stroke-width="1" opacity="0.07"/>
+  <line x1="642" y1="490" x2="716" y2="562" stroke="#a855f7" stroke-width="1" opacity="0.06"/>
+  <line x1="689" y1="61" x2="756" y2="120" stroke="#a855f7" stroke-width="1" opacity="0.05"/>
+  <line x1="736" y1="132" x2="796" y2="178" stroke="#a855f7" stroke-width="1" opacity="0.04"/>
+  <line x1="783" y1="203" x2="956" y2="236" stroke="#a855f7" stroke-width="1" opacity="0.07"/>
+  <line x1="30" y1="274" x2="196" y2="374" stroke="#a855f7" stroke-width="1" opacity="0.06"/>
+  <line x1="77" y1="345" x2="236" y2="432" stroke="#a855f7" stroke-width="1" opacity="0.05"/>
+  <rect x="40" y="40" width="720" height="420" rx="12" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.15"/>
+  <text x="400" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="700" fill="#a855f7" opacity="0.12" letter-spacing="-2">EA</text>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#e5e5e5" opacity="0.9">Exam AI Grader</text>
+  <rect x="340" y="310" width="120" height="3" rx="1.5" fill="#a855f7" opacity="0.4"/>
+</svg>

@@ -54,7 +54,7 @@ export function Contact() {
     };
 
     return (
-        <SectionWrapper id="contact" className="bg-neutral-50 dark:bg-neutral-900/50">
+        <SectionWrapper id="contact" className="bg-neutral-950">
             <SectionHeader
                 title="Get In Touch"
                 subtitle="Have a project in mind or just want to chat? I'd love to hear from you."
@@ -67,27 +67,27 @@ export function Contact() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-2xl font-bold mb-4 text-neutral-900 dark:text-white">Let&apos;s Connect</h3>
-                    <p className="text-neutral-600 dark:text-neutral-200 mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-white">Let&apos;s Connect</h3>
+                    <p className="text-neutral-400 mb-8">
                         I&apos;m always open to discussing new projects, creative ideas, or
                         opportunities to be part of your vision. Whether you need a full-stack
-                        developer, an AI solution, or just technical advice — reach out!
+                        developer, an AI solution, or just technical advice, reach out!
                     </p>
 
                     {/* Email */}
                     <div className="mb-8">
-                        <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-2">
+                        <p className="text-sm text-neutral-500 mb-2">
                             Email me at
                         </p>
                         <button
                             onClick={copyEmail}
-                            className="flex items-center gap-2 text-lg font-medium text-neutral-900 dark:text-white hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors group"
+                            className="flex items-center gap-2 text-lg font-medium text-white hover:text-neutral-300 transition-colors group"
                         >
                             <Mail className="w-5 h-5" />
                             {socialLinks.email}
-                            <span className="text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                            <span className="text-neutral-500 group-hover:text-neutral-300">
                                 {copied ? (
-                                    <Check className="w-4 h-4 text-green-500" />
+                                    <Check className="w-4 h-4 text-emerald-500" />
                                 ) : (
                                     <Copy className="w-4 h-4" />
                                 )}
@@ -97,7 +97,7 @@ export function Contact() {
                             <motion.p
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-sm text-green-500 mt-1"
+                                className="text-sm text-emerald-500 mt-1"
                             >
                                 Copied to clipboard!
                             </motion.p>
@@ -106,7 +106,7 @@ export function Contact() {
 
                     {/* Social Links */}
                     <div>
-                        <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-4">
+                        <p className="text-sm text-neutral-500 mb-4">
                             Or find me on
                         </p>
                         <div className="flex gap-3">
@@ -117,9 +117,8 @@ export function Contact() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={cn(
-                                        "p-4 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700",
-                                        "text-neutral-600 dark:text-neutral-200 transition-all duration-200",
-                                        social.color
+                                        "p-4 rounded-xl bg-neutral-900 border border-neutral-800",
+                                        "text-neutral-400 transition-all duration-200 hover:text-white hover:border-neutral-600 hover:bg-neutral-800"
                                     )}
                                     whileHover={{ scale: 1.05, y: -4 }}
                                     whileTap={{ scale: 0.95 }}
@@ -142,7 +141,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="name"
-                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
+                                className="block text-sm font-medium mb-2 text-neutral-300"
                             >
                                 Name
                             </label>
@@ -153,7 +152,7 @@ export function Contact() {
                                 value={formState.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all"
+                                className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder:text-neutral-600 focus:border-neutral-600 focus:ring-1 focus:ring-neutral-600 focus:outline-none transition-all"
                                 placeholder="Your name"
                             />
                         </div>
@@ -161,7 +160,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="email"
-                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
+                                className="block text-sm font-medium mb-2 text-neutral-300"
                             >
                                 Email
                             </label>
@@ -172,7 +171,7 @@ export function Contact() {
                                 value={formState.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all"
+                                className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder:text-neutral-600 focus:border-neutral-600 focus:ring-1 focus:ring-neutral-600 focus:outline-none transition-all"
                                 placeholder="your@email.com"
                             />
                         </div>
@@ -180,7 +179,7 @@ export function Contact() {
                         <div>
                             <label
                                 htmlFor="message"
-                                className="block text-sm font-medium mb-2 text-neutral-800 dark:text-neutral-200"
+                                className="block text-sm font-medium mb-2 text-neutral-300"
                             >
                                 Message
                             </label>
@@ -191,7 +190,7 @@ export function Contact() {
                                 onChange={handleChange}
                                 required
                                 rows={5}
-                                className="w-full px-4 py-3 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder:text-neutral-700 dark:placeholder:text-neutral-300 focus:border-neutral-400 dark:focus:border-neutral-500 focus:ring-1 focus:ring-neutral-400 dark:focus:ring-neutral-500 focus:outline-none transition-all resize-none"
+                                className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder:text-neutral-600 focus:border-neutral-600 focus:ring-1 focus:ring-neutral-600 focus:outline-none transition-all resize-none"
                                 placeholder="Tell me about your project..."
                             />
                         </div>
@@ -200,7 +199,7 @@ export function Contact() {
                             type="submit"
                             disabled={isSubmitting}
                             className={cn(
-                                "w-full btn btn-primary",
+                                "w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-medium rounded-lg bg-white text-neutral-900 hover:bg-neutral-100 transition-colors",
                                 isSubmitting && "opacity-70 cursor-not-allowed"
                             )}
                             whileHover={{ scale: isSubmitting ? 1 : 1.01 }}

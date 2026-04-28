@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="grad-chapel-automation" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1f0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="grid-chapel-automation" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22c55e" stroke-width="0.5" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="500" fill="url(#grad-chapel-automation)" />
+  <rect width="800" height="500" fill="url(#grid-chapel-automation)" />
+  <circle cx="655" cy="135" r="115" fill="#22c55e" opacity="0.03"/>
+  <circle cx="192" cy="224" r="88" fill="#22c55e" opacity="0.04"/>
+  <circle cx="329" cy="313" r="61" fill="#22c55e" opacity="0.05"/>
+  <circle cx="466" cy="402" r="114" fill="#22c55e" opacity="0.06"/>
+  <circle cx="603" cy="151" r="87" fill="#22c55e" opacity="0.07"/>
+  <circle cx="140" cy="240" r="60" fill="#22c55e" opacity="0.03"/>
+  <line x1="155" y1="255" x2="290" y2="360" stroke="#22c55e" stroke-width="1" opacity="0.07"/>
+  <line x1="202" y1="326" x2="330" y2="418" stroke="#22c55e" stroke-width="1" opacity="0.06"/>
+  <line x1="249" y1="397" x2="370" y2="476" stroke="#22c55e" stroke-width="1" opacity="0.05"/>
+  <line x1="296" y1="468" x2="410" y2="534" stroke="#22c55e" stroke-width="1" opacity="0.04"/>
+  <line x1="343" y1="39" x2="450" y2="92" stroke="#22c55e" stroke-width="1" opacity="0.07"/>
+  <line x1="390" y1="110" x2="490" y2="150" stroke="#22c55e" stroke-width="1" opacity="0.06"/>
+  <line x1="437" y1="181" x2="530" y2="288" stroke="#22c55e" stroke-width="1" opacity="0.05"/>
+  <line x1="484" y1="252" x2="570" y2="346" stroke="#22c55e" stroke-width="1" opacity="0.04"/>
+  <rect x="40" y="40" width="720" height="420" rx="12" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.15"/>
+  <text x="400" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="700" fill="#22c55e" opacity="0.12" letter-spacing="-2">CA</text>
+  <text x="400" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="600" fill="#e5e5e5" opacity="0.9">Chapel Automation</text>
+  <rect x="340" y="310" width="120" height="3" rx="1.5" fill="#22c55e" opacity="0.4"/>
+</svg>

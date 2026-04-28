@@ -53,7 +53,6 @@ export function Navbar() {
                 element.scrollIntoView({ behavior: "smooth" });
             }
         } else {
-            // Navigate to homepage with hash
             router.push("/" + href);
         }
     };
@@ -66,7 +65,7 @@ export function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 isScrolled
-                    ? "py-3 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800"
+                    ? "py-3 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800"
                     : "py-5 bg-transparent"
             )}
         >
@@ -82,24 +81,17 @@ export function Navbar() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                 >
-                    {/* Code bracket accent */}
-                    <span className="text-neutral-400 dark:text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                    <span className="text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-300">
                         {"<"}
                     </span>
-                    {/* Name */}
-                    <span className="font-bold text-lg tracking-tight">
-                        <span className="text-neutral-900 dark:text-white">Lucas</span>
-                        <span className="text-neutral-400 dark:text-neutral-500">-</span>
-                        <span className="bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white bg-clip-text text-transparent">
-                            Adebayo
-                        </span>
-                        <span className="text-neutral-400 dark:text-neutral-500 ml-1">|</span>
-                        <span className="text-neutral-600 dark:text-neutral-400 ml-1 font-medium">
+                    <span className="font-bold text-lg tracking-tight text-white">
+                        Lucas<span className="text-neutral-500">-</span>Adebayo
+                        <span className="text-neutral-500 ml-1">|</span>
+                        <span className="text-neutral-400 ml-1 font-medium">
                             Daniel
                         </span>
                     </span>
-                    {/* Closing bracket with slash */}
-                    <span className="text-neutral-400 dark:text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-600 dark:group-hover:text-neutral-300">
+                    <span className="text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-300">
                         {"/>"}
                     </span>
                 </motion.a>
@@ -117,8 +109,8 @@ export function Navbar() {
                             className={cn(
                                 "text-sm font-medium transition-colors relative",
                                 activeSection === item.href.replace("#", "")
-                                    ? "text-neutral-900 dark:text-white"
-                                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+                                    ? "text-white"
+                                    : "text-neutral-400 hover:text-white"
                             )}
                             whileHover={{ y: -2 }}
                             whileTap={{ y: 0 }}
@@ -127,7 +119,7 @@ export function Navbar() {
                             {activeSection === item.href.replace("#", "") && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-neutral-900 dark:bg-white rounded-full"
+                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"
                                 />
                             )}
                         </motion.a>
@@ -140,7 +132,7 @@ export function Navbar() {
                     <ThemeToggle />
                     <motion.button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="p-2 text-neutral-900 dark:text-white"
+                        className="p-2 text-white"
                         whileTap={{ scale: 0.9 }}
                         aria-label="Toggle menu"
                     >
@@ -161,7 +153,7 @@ export function Navbar() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden bg-white/95 dark:bg-neutral-950/95 backdrop-blur-md border-t border-neutral-200 dark:border-neutral-800"
+                        className="md:hidden bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800"
                     >
                         <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
                             {navItems.map((item, i) => (
@@ -178,8 +170,8 @@ export function Navbar() {
                                     className={cn(
                                         "text-lg font-medium py-2",
                                         activeSection === item.href.replace("#", "")
-                                            ? "text-neutral-900 dark:text-white"
-                                            : "text-neutral-600 dark:text-neutral-400"
+                                            ? "text-white"
+                                            : "text-neutral-400"
                                     )}
                                 >
                                     {item.label}

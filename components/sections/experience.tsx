@@ -14,7 +14,7 @@ const typeIcons = {
 
 export function Experience() {
     return (
-        <SectionWrapper id="experience">
+        <SectionWrapper id="experience" className="bg-neutral-900">
             <SectionHeader
                 title="Experience"
                 subtitle="My journey in software development"
@@ -24,7 +24,7 @@ export function Experience() {
                 {/* Timeline */}
                 <div className="relative">
                     {/* Timeline Line */}
-                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800 md:-translate-x-1/2" />
+                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-neutral-800 md:-translate-x-1/2" />
 
                     {experiences.map((exp, index) => {
                         const IconComponent = typeIcons[exp.type];
@@ -51,9 +51,9 @@ export function Experience() {
                                         whileInView={{ scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 + 0.2 }}
-                                        className="w-10 h-10 rounded-full bg-white dark:bg-neutral-900 border-4 border-neutral-200 dark:border-neutral-800 flex items-center justify-center shadow-sm z-10 relative"
+                                        className="w-10 h-10 rounded-full bg-neutral-900 border-4 border-neutral-800 flex items-center justify-center z-10 relative"
                                     >
-                                        <IconComponent className="w-4 h-4 text-neutral-500 dark:text-neutral-400" />
+                                        <IconComponent className="w-4 h-4 text-neutral-400" />
                                     </motion.div>
                                 </div>
 
@@ -64,22 +64,22 @@ export function Experience() {
                                         isLeft ? "md:pr-8 md:text-right" : "md:pl-8"
                                     )}
                                 >
-                                    <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 card-hover shadow-sm">
+                                    <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
                                         {/* Period */}
-                                        <span className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                                        <span className="text-sm font-medium text-neutral-500">
                                             {exp.period}
                                         </span>
 
                                         {/* Title & Company */}
-                                        <h3 className="text-xl font-bold mt-1 mb-1 text-neutral-900 dark:text-white">
+                                        <h3 className="text-xl font-bold mt-1 mb-1 text-white">
                                             {exp.title}
                                         </h3>
-                                        <p className="font-medium mb-3 text-neutral-600 dark:text-neutral-300">
+                                        <p className="font-medium mb-3 text-neutral-300">
                                             {exp.company}
                                         </p>
 
                                         {/* Description */}
-                                        <p className="text-sm mb-4 text-neutral-600 dark:text-neutral-400">
+                                        <p className="text-sm mb-4 text-neutral-400">
                                             {exp.description}
                                         </p>
 
@@ -92,11 +92,11 @@ export function Experience() {
                                                     <li
                                                         key={i}
                                                         className={cn(
-                                                            "text-sm flex items-start gap-2 text-neutral-500 dark:text-neutral-400",
+                                                            "text-sm flex items-start gap-2 text-neutral-500",
                                                             isLeft && "md:flex-row-reverse"
                                                         )}
                                                     >
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2 flex-shrink-0" />
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 mt-2 flex-shrink-0" />
                                                         <span>{highlight}</span>
                                                     </li>
                                                 ))}

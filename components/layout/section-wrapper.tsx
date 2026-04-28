@@ -20,7 +20,7 @@ export function SectionWrapper({
         <section
             id={id}
             className={cn(
-                "relative py-20 md:py-32 px-6 bg-white dark:bg-neutral-950 transition-colors duration-300",
+                "relative py-20 md:py-32 px-6 transition-colors duration-300",
                 fullHeight && "min-h-screen flex items-center",
                 className
             )}
