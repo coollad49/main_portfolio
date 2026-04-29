@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "../theme-toggle";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -61,43 +60,36 @@ export function Navbar() {
         <motion.header
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 isScrolled
-                    ? "py-3 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800"
-                    : "py-5 bg-transparent"
+                    ? "py-4 bg-black/80 backdrop-blur-xl border-b border-neutral-900"
+                    : "py-6 bg-transparent"
             )}
         >
-            <nav className="container mx-auto px-6 flex items-center justify-between">
-                {/* Logo */}
-                {/* <motion.a
+            <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+                {/* Minimalist Logo */}
+                <motion.a
                     href="#home"
                     onClick={(e) => {
                         e.preventDefault();
                         handleNavClick("#home");
                     }}
-                    className="group flex items-center gap-1"
+                    className="flex flex-col group"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                 >
-                    <span className="text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-300">
-                        {"<"}
+                    <span className="font-bold text-lg tracking-tighter text-white uppercase leading-none">
+                        LAD
                     </span>
-                    <span className="font-bold text-lg tracking-tight text-white">
-                        Lucas<span className="text-neutral-500">-</span>Adebayo
-                        <span className="text-neutral-500 ml-1">|</span>
-                        <span className="text-neutral-400 ml-1 font-medium">
-                            Daniel
-                        </span>
+                    <span className="font-mono text-[10px] tracking-widest text-neutral-500 uppercase leading-none mt-1">
+                        System
                     </span>
-                    <span className="text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-300">
-                        {"/>"}
-                    </span>
-                </motion.a> */}
+                </motion.a>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8 ml-auto">
+                <div className="hidden md:flex items-center gap-10">
                     {navItems.map((item) => (
                         <motion.a
                             key={item.href}
@@ -107,10 +99,10 @@ export function Navbar() {
                                 handleNavClick(item.href);
                             }}
                             className={cn(
-                                "text-sm font-medium transition-colors relative",
+                                "text-xs font-mono uppercase tracking-widest transition-colors relative py-2",
                                 activeSection === item.href.replace("#", "")
                                     ? "text-white"
-                                    : "text-neutral-400 hover:text-white"
+                                    : "text-neutral-500 hover:text-neutral-300"
                             )}
                             whileHover={{ y: -2 }}
                             whileTap={{ y: 0 }}
@@ -119,17 +111,16 @@ export function Navbar() {
                             {activeSection === item.href.replace("#", "") && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"
+                                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-white"
+                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 />
                             )}
                         </motion.a>
                     ))}
-                    <ThemeToggle />
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="flex items-center gap-4 md:hidden">
-                    <ThemeToggle />
                     <motion.button
                         onClick={() => setIsOpen(!isOpen)}
                         className="p-2 text-white"
@@ -152,10 +143,10 @@ export function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden bg-neutral-950/95 backdrop-blur-md border-t border-neutral-800"
+                        transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                        className="md:hidden bg-black/95 backdrop-blur-xl border-t border-neutral-900"
                     >
-                        <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
+                        <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
                             {navItems.map((item, i) => (
                                 <motion.a
                                     key={item.href}
@@ -168,10 +159,10 @@ export function Navbar() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.05 }}
                                     className={cn(
-                                        "text-lg font-medium py-2",
+                                        "text-sm font-mono uppercase tracking-widest py-2 border-b border-neutral-900",
                                         activeSection === item.href.replace("#", "")
                                             ? "text-white"
-                                            : "text-neutral-400"
+                                            : "text-neutral-500"
                                     )}
                                 >
                                     {item.label}

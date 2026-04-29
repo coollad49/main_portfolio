@@ -20,6 +20,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "FastAPI", "LangGraph", "PostgreSQL", "RabbitMQ", "Redis", "WebSockets", "Docker"],
         category: "ai-ml",
         featured: true,
+        github: "https://github.com/coollad49/Exam-AI-Grader-frontend",
         image: "/projects/exam-ai-grader.png",
     },
     {
@@ -32,16 +33,7 @@ export const projects: Project[] = [
         featured: true,
         image: "/projects/bursary-dashboard.png",
     },
-    {
-        id: "learn-your-facts",
-        title: "Learn Your Facts",
-        shortDescription: "AI-powered educational blog generator with dynamic content and visuals",
-        description: "Turns any topic in any subject into a fully AI-generated educational blog with relevant visuals. Built as a serverless fullstack application using chained LLM prompts and Pexels API for images.",
-        techStack: ["Next.js", "TypeScript", "OpenRouter", "MongoDB", "Pexels API"],
-        category: "ai-ml",
-        featured: false,
-        image: "/projects/learn-your-facts.svg",
-    },
+
     {
         id: "logbook-generator",
         title: "Generate Logbook Entries",
@@ -50,7 +42,8 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "ShadCN UI", "OpenRouter", "MongoDB"],
         category: "ai-ml",
         featured: false,
-        image: "/projects/logbook-generator.svg",
+        github: "https://github.com/coollad49/generate-logbook-Entries",
+        image: "/projects/logbook.png",
     },
     {
         id: "hospital-chatbot",
@@ -120,6 +113,7 @@ export const projects: Project[] = [
         techStack: ["Next.js", "TypeScript", "TailwindCSS", "ShadCN UI"],
         category: "fullstack",
         featured: true,
+        live: "https://dagloremodelschools.com.ng/",
         image: "/projects/daglore-website.png",
     },
     {

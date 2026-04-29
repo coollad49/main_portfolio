@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SectionWrapper, SectionHeader } from "@/components/layout/section-wrapper";
 import { getBlogPosts } from "@/lib/data/blog";
-import { ArrowRight, Clock, Tag, Calendar } from "lucide-react";
+import { Clock, Tag, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 

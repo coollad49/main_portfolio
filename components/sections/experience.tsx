@@ -2,107 +2,108 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap, Code } from "lucide-react";
-import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
+import { SectionWrapper } from "../layout/section-wrapper";
 import { experiences } from "@/lib/data/experience";
-import { cn } from "@/lib/utils";
 
-const typeIcons = {
-    work: Briefcase,
-    education: GraduationCap,
-    project: Code,
-};
 
 export function Experience() {
     return (
-        <SectionWrapper id="experience" className="bg-neutral-900">
-            <SectionHeader
-                title="Experience"
-                subtitle="My journey in software development"
-            />
+        <SectionWrapper id="experience" className="bg-neutral-950 text-white">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
+                <div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 mb-4"
+                    >
+                        04 // Career
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none"
+                    >
+                        Operational
+                        <br />
+                        History.
+                    </motion.h3>
+                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="max-w-sm text-sm text-neutral-400 font-mono leading-relaxed"
+                >
+                    A TIMELINE OF ENGINEERING ROLES, PROJECTS, AND CONSTANT ITERATION.
+                </motion.div>
+            </div>
 
-            <div className="max-w-3xl mx-auto">
-                {/* Timeline */}
-                <div className="relative">
-                    {/* Timeline Line */}
-                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-neutral-800 md:-translate-x-1/2" />
-
-                    {experiences.map((exp, index) => {
-                        const IconComponent = typeIcons[exp.type];
-                        const isLeft = index % 2 === 0;
+            <div className="max-w-4xl mx-auto">
+                <div className="border-l border-neutral-800 ml-4 md:ml-[140px] pl-8 md:pl-16 relative space-y-16">
+                    {experiences.map((exp) => {
 
                         return (
                             <motion.div
                                 key={exp.id}
-                                initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className={cn(
-                                    "relative mb-12 last:mb-0",
-                                    "pl-20 md:pl-0",
-                                    "md:flex md:items-start",
-                                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
-                                )}
+                                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+                                className="relative group"
                             >
                                 {/* Timeline Node */}
-                                <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 -translate-x-1/2">
-                                    <motion.div
-                                        initial={{ scale: 0 }}
-                                        whileInView={{ scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 + 0.2 }}
-                                        className="w-10 h-10 rounded-full bg-neutral-900 border-4 border-neutral-800 flex items-center justify-center z-10 relative"
-                                    >
-                                        <IconComponent className="w-4 h-4 text-neutral-400" />
-                                    </motion.div>
+                                <div className="absolute -left-[53px] md:-left-[85px] top-1 w-6 h-6 bg-black border border-neutral-700 flex items-center justify-center group-hover:border-white transition-colors duration-500">
+                                    <div className="w-1.5 h-1.5 bg-neutral-600 group-hover:bg-white transition-colors duration-500" />
+                                </div>
+
+                                {/* Period (Desktop - Absolute Left) */}
+                                <div className="hidden md:block absolute -left-[240px] top-1 w-[100px] text-right">
+                                    <span className="text-xs font-mono uppercase tracking-[0.1em] text-neutral-500">
+                                        {exp.period}
+                                    </span>
                                 </div>
 
                                 {/* Content */}
-                                <div
-                                    className={cn(
-                                        "md:w-[calc(50%-2rem)]",
-                                        isLeft ? "md:pr-8 md:text-right" : "md:pl-8"
-                                    )}
-                                >
-                                    <div className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800">
-                                        {/* Period */}
-                                        <span className="text-sm font-medium text-neutral-500">
+                                <div>
+                                    {/* Period (Mobile only) */}
+                                    <div className="md:hidden mb-4">
+                                        <span className="text-xs font-mono uppercase tracking-[0.1em] text-neutral-500">
                                             {exp.period}
                                         </span>
+                                    </div>
 
-                                        {/* Title & Company */}
-                                        <h3 className="text-xl font-bold mt-1 mb-1 text-white">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
                                             {exp.title}
                                         </h3>
-                                        <p className="font-medium mb-3 text-neutral-300">
+                                        <span className="text-neutral-700 hidden sm:block">—</span>
+                                        <span className="text-sm font-mono tracking-widest uppercase text-neutral-400 hidden sm:block">
                                             {exp.company}
-                                        </p>
-
-                                        {/* Description */}
-                                        <p className="text-sm mb-4 text-neutral-400">
-                                            {exp.description}
-                                        </p>
-
-                                        {/* Highlights */}
-                                        {exp.highlights && (
-                                            <ul
-                                                className={cn("space-y-2", isLeft && "md:text-right")}
-                                            >
-                                                {exp.highlights.map((highlight, i) => (
-                                                    <li
-                                                        key={i}
-                                                        className={cn(
-                                                            "text-sm flex items-start gap-2 text-neutral-500",
-                                                            isLeft && "md:flex-row-reverse"
-                                                        )}
-                                                    >
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-500 mt-2 flex-shrink-0" />
-                                                        <span>{highlight}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
+                                        </span>
                                     </div>
+                                    
+                                    <div className="sm:hidden mb-6 text-sm font-mono tracking-widest uppercase text-neutral-400">
+                                        {exp.company}
+                                    </div>
+
+                                    <p className="text-neutral-400 leading-relaxed mb-6 max-w-2xl font-light">
+                                        {exp.description}
+                                    </p>
+
+                                    {exp.highlights && exp.highlights.length > 0 && (
+                                        <ul className="space-y-3">
+                                            {exp.highlights.map((highlight, i) => (
+                                                <li key={i} className="flex items-start gap-4 text-sm text-neutral-500">
+                                                    <span className="text-neutral-700 font-mono mt-0.5">{`>`}</span>
+                                                    <span className="leading-relaxed">{highlight}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                 </div>
                             </motion.div>
                         );

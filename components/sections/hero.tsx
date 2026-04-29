@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
@@ -18,6 +18,7 @@ export function Hero() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -58,148 +59,132 @@ export function Hero() {
     return (
         <section
             id="home"
-            className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-neutral-950"
+            className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-black"
         >
             {/* 3D Background */}
             <Suspense fallback={null}>
                 <HeroScene />
             </Suspense>
 
-            {/* Subtle radial gradient overlay for depth */}
-            <div
-                className="absolute inset-0 pointer-events-none z-[1]"
-                style={{
-                    background: "radial-gradient(ellipse at center, transparent 0%, transparent 50%, rgba(10,10,10,0.8) 100%)",
-                }}
-            />
+            {/* Architectural Grid Overlay */}
+            <div className="absolute inset-0 pointer-events-none grid-pattern opacity-30 z-[1]" />
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-5xl mx-auto px-6">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-center min-h-[80vh]">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                    transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="flex flex-col items-start"
                 >
-                    {/* Location badge */}
+                    {/* Top Status Bar */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                        className="flex items-center gap-2 mb-8"
+                        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                        className="flex items-center gap-6 mb-12 lg:mb-16"
                     >
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-800/60 border border-neutral-700/50 text-neutral-400 text-sm">
+                        <div className="flex items-center gap-3">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                             </span>
-                            Available for work
-                        </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-800/60 border border-neutral-700/50 text-neutral-400 text-sm">
-                            <MapPin className="w-3.5 h-3.5" />
-                            Nigeria
+                            <span className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400">
+                                Available for work
+                            </span>
+                        </div>
+                        <span className="w-8 h-[1px] bg-neutral-800" />
+                        <span className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400">
+                            Based in Nigeria
                         </span>
                     </motion.div>
 
-                    {/* Name */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6"
-                        style={{ letterSpacing: "-0.03em", lineHeight: 1.05 }}
-                    >
-                        {personalInfo.name}
-                    </motion.h1>
+                    {/* Massive Name */}
+                    <div className="flex flex-col mb-8 md:mb-12">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                            className="text-[12vw] sm:text-[10vw] md:text-8xl lg:text-[120px] font-bold text-white uppercase leading-[0.85] tracking-tighter"
+                        >
+                            Lucas-Adebayo
+                        </motion.h1>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                            className="text-[12vw] sm:text-[10vw] md:text-8xl lg:text-[120px] font-bold text-neutral-700 uppercase leading-[0.85] tracking-tighter"
+                        >
+                            Daniel
+                        </motion.h1>
+                    </div>
 
                     {/* Tagline + typing */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                        className="mb-10"
+                        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                        className="max-w-2xl mb-16"
                     >
-                        <p className="text-lg md:text-xl text-neutral-300 mb-3 max-w-2xl">
-                            {personalInfo.tagline}
-                        </p>
-                        <p className="text-sm md:text-base text-neutral-500 max-w-2xl mb-4">
-                            I work with founders, teams, and schools to build products that reduce
-                            repetitive work, improve operations, and ship with confidence.
-                        </p>
-                        <div className="h-8 flex items-center">
-                            <span className="text-base md:text-lg font-medium text-neutral-300 font-mono">
-                                <span className="text-neutral-500">{`>`}</span>{" "}
+                        <div className="h-8 flex items-center mb-6">
+                            <span className="text-sm md:text-base font-mono text-neutral-400 tracking-widest uppercase">
+                                <span className="text-neutral-600 mr-4">{`//`}</span>
                                 {displayText}
-                                <span className="animate-pulse text-neutral-500">_</span>
+                                <span className="animate-pulse text-white ml-1">_</span>
                             </span>
                         </div>
+                        <p className="text-lg md:text-xl text-neutral-500 font-light leading-relaxed max-w-xl">
+                            Engineered solutions for founders, teams, and schools. Reducing repetitive work, optimizing operations, and shipping with absolute precision.
+                        </p>
                     </motion.div>
 
                     {/* CTA Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
-                        className="flex flex-col sm:flex-row items-start gap-4"
+                        transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
+                        className="flex flex-col sm:flex-row items-center gap-6"
                     >
-                        <motion.a
+                        <button
                             onClick={handleScrollToProjects}
-                            href="#projects"
-                            className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 font-medium rounded-lg bg-white text-neutral-900 hover:bg-neutral-100 transition-colors duration-200"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            className="btn btn-primary group w-full sm:w-auto"
                         >
-                            See Client Work
-                            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                        </motion.a>
-                        <motion.a
-                            href="#contact"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                            }}
-                            className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 font-medium rounded-lg bg-neutral-800 text-neutral-200 hover:bg-neutral-700 transition-all duration-200"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            <MessageCircle className="w-4 h-4" />
-                            Start a Project
-                        </motion.a>
-                        <motion.a
+                            <span className="mr-4">View Projects</span>
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </button>
+                        <a
                             href="/resume.pdf"
                             download
-                            className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 font-medium rounded-lg border border-neutral-700 text-neutral-300 hover:bg-neutral-800/60 hover:border-neutral-600 transition-all duration-200"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            className="btn btn-outline group w-full sm:w-auto"
                         >
-                            <Download className="w-4 h-4" />
-                            Download Resume
-                        </motion.a>
+                            <span className="mr-4">Resume</span>
+                            <Download className="w-4 h-4 transition-transform group-hover:-translate-y-1" />
+                        </a>
                     </motion.div>
                 </motion.div>
             </div>
 
-            {/* Bottom bar with scroll indicator */}
+            {/* Bottom Bar */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute bottom-0 left-0 right-0 z-10"
+                transition={{ delay: 1.2, duration: 1 }}
+                className="absolute bottom-0 left-0 right-0 z-10 border-t border-neutral-900 bg-black/50 backdrop-blur-md"
             >
-                <div className="max-w-5xl mx-auto px-6 pb-8 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
                     {/* Social links */}
-                    <div className="hidden sm:flex items-center gap-4">
+                    <div className="flex items-center gap-8">
                         {[
-                            { label: "GitHub", href: socialLinks.github },
-                            { label: "LinkedIn", href: socialLinks.linkedin },
-                            { label: "Twitter", href: socialLinks.twitter },
+                            { label: "GH", href: socialLinks.github },
+                            { label: "IN", href: socialLinks.linkedin },
+                            { label: "X", href: socialLinks.twitter },
                         ].map((link) => (
                             <a
                                 key={link.label}
                                 href={link.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors duration-200"
+                                className="text-xs font-mono tracking-[0.2em] text-neutral-500 hover:text-white transition-colors duration-300"
                             >
                                 {link.label}
                             </a>
@@ -207,19 +192,20 @@ export function Hero() {
                     </div>
 
                     {/* Scroll indicator */}
-                    <motion.button
+                    <button
                         onClick={handleScrollDown}
-                        className="flex items-center gap-2 text-neutral-500 hover:text-neutral-300 transition-colors cursor-pointer group ml-auto"
+                        className="flex items-center gap-4 text-neutral-500 hover:text-white transition-colors cursor-pointer group"
                         aria-label="Scroll down"
                     >
-                        <span className="text-xs tracking-widest uppercase font-medium">Scroll</span>
-                        <motion.div
-                            animate={{ y: [0, 6, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            <ArrowDown className="w-4 h-4" />
-                        </motion.div>
-                    </motion.button>
+                        <span className="text-xs font-mono uppercase tracking-[0.2em] hidden sm:block">Scroll</span>
+                        <div className="w-6 h-10 border border-neutral-800 rounded-full flex justify-center p-1">
+                            <motion.div
+                                animate={{ y: [0, 16, 0], opacity: [1, 0, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                className="w-1 h-2 bg-neutral-500 rounded-full"
+                            />
+                        </div>
+                    </button>
                 </div>
             </motion.div>
         </section>

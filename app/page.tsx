@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <About />
       <Skills />

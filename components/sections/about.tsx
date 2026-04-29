@@ -2,40 +2,70 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { SectionWrapper, SectionHeader } from "../layout/section-wrapper";
+import { SectionWrapper } from "../layout/section-wrapper";
 import { stats } from "@/lib/data/experience";
+import { ArrowRight } from "lucide-react";
 
 export function About() {
     return (
-        <SectionWrapper id="about" className="bg-neutral-900">
-            <SectionHeader
-                title="About"
-                subtitle="How I turn complex problems into practical products"
-            />
-
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-                {/* Avatar / Visual */}
+        <SectionWrapper id="about" className="bg-neutral-950 text-white">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
+                <div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 mb-4"
+                    >
+                        01 // About
+                    </motion.h2>
+                    <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none"
+                    >
+                        Precision
+                        <br />
+                        Engineering.
+                    </motion.h3>
+                </div>
                 <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                    className="lg:col-span-2 flex justify-center lg:justify-start"
+                    transition={{ delay: 0.2 }}
+                    className="max-w-sm text-sm text-neutral-400 font-mono leading-relaxed"
                 >
-                    <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-full lg:h-auto lg:aspect-square max-w-sm">
-                        {/* Subtle ring */}
-                        <div className="absolute inset-0 rounded-2xl border border-neutral-700/50" />
-                        <div className="absolute -inset-3 rounded-2xl border border-neutral-800/30" />
+                    HOW I TURN COMPLEX PROBLEMS INTO PRACTICAL, SCALABLE PRODUCTS WITH ZERO COMPROMISES.
+                </motion.div>
+            </div>
 
-                        {/* Avatar Container */}
-                        <div className="absolute inset-0 rounded-2xl bg-neutral-800 overflow-hidden">
-                            <Image
-                                src="/me.png"
-                                alt="Lucas-Adebayo Daniel"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                {/* Visual / Avatar */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    className="lg:col-span-5 relative"
+                >
+                    <div className="relative aspect-[4/5] w-full bg-neutral-900 overflow-hidden group">
+                        <Image
+                            src="/me.png"
+                            alt="Lucas-Adebayo Daniel"
+                            fill
+                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            priority
+                        />
+                        {/* Overlay elements */}
+                        <div className="absolute inset-0 border border-neutral-800 pointer-events-none" />
+                        <div className="absolute bottom-6 left-6 flex items-center gap-4">
+                            <div className="w-8 h-[1px] bg-white" />
+                            <span className="text-[10px] font-mono tracking-widest uppercase">
+                                System Arch.
+                            </span>
                         </div>
                     </div>
                 </motion.div>
@@ -45,58 +75,44 @@ export function About() {
                     initial={{ opacity: 0, x: 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 1, 0.5, 1] }}
-                    className="lg:col-span-3"
+                    transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+                    className="lg:col-span-7 flex flex-col justify-between h-full"
                 >
-                    <div className="space-y-5 text-neutral-400 leading-relaxed">
-                        <p className="text-lg text-neutral-200">
-                            I&apos;m a{" "}
-                            <span className="text-white font-medium">
-                                product-minded engineer
-                            </span>{" "}
-                            who helps teams{" "}
-                            <span className="text-white font-medium">
-                                ship useful software and AI features faster
-                            </span>{" "}
-                            with less operational friction.
+                    <div className="space-y-8 text-neutral-400 text-base md:text-lg leading-relaxed font-light mb-16">
+                        <p className="text-xl md:text-3xl text-white font-medium tracking-tight leading-snug">
+                            I am a product-minded engineer who helps teams ship useful software and AI features faster, with less operational friction.
                         </p>
 
                         <p>
-                            I focus on one thing: identifying where teams lose time, then
-                            building systems that make that work faster, simpler, and more
-                            reliable. That includes everything from automated grading workflows
-                            to school finance and operations platforms.
+                            I focus on one thing: identifying where teams lose time, then building systems that make that work faster, simpler, and more reliable. That includes everything from automated grading workflows to school finance and operations platforms.
                         </p>
 
                         <p>
-                            Clients usually come to me when a process is too manual, too slow,
-                            or too error-prone. I design and build end-to-end solutions that
-                            improve day-to-day execution while still being maintainable for the
-                            team long term.
+                            Clients usually come to me when a process is too manual, too slow, or too error-prone. I design and build end-to-end solutions that improve day-to-day execution while still being maintainable for the team long term.
                         </p>
                     </div>
 
-                    {/* Stats - inline, not cards */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.5 }}
-                        className="mt-10 pt-8 border-t border-neutral-800"
-                    >
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
-                            {stats.map((stat) => (
-                                <div key={stat.label}>
-                                    <div className="text-2xl md:text-3xl font-bold text-white tabular-nums">
-                                        {stat.value}
-                                    </div>
-                                    <div className="text-sm mt-1 text-neutral-500">
-                                        {stat.label}
-                                    </div>
+                    {/* Architectural Stats */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-800/50">
+                        {stats.map((stat, i) => (
+                            <motion.div
+                                key={stat.label}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                                className="bg-neutral-950 p-6 md:p-8 flex flex-col justify-between border-t md:border-t-0 md:border-l first:border-l-0 border-neutral-800"
+                            >
+                                <div className="text-3xl lg:text-4xl font-mono text-white mb-4 tracking-tighter">
+                                    {stat.value}
                                 </div>
-                            ))}
-                        </div>
-                    </motion.div>
+                                <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest flex items-center justify-between">
+                                    {stat.label}
+                                    <ArrowRight className="w-3 h-3 text-neutral-700" />
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </SectionWrapper>

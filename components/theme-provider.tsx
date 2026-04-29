@@ -18,6 +18,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -27,6 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         const root = document.documentElement;
         root.classList.remove("light");
         root.classList.add("dark");
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setResolvedTheme("dark");
     }, [theme, mounted]);
 
@@ -49,7 +51,7 @@ export function useTheme() {
         return {
             theme: "dark" as Theme,
             setTheme: () => { },
-            resolvedTheme: "dark" as "dark",
+            resolvedTheme: "dark" as const,
         };
     }
     return context;

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/immutability */
+/* eslint-disable react-hooks/purity */
 "use client";
 
 import { useRef, useMemo, useEffect } from "react";
@@ -13,7 +15,7 @@ const MOUSE_REPEL_STRENGTH = 0.8;
 function NetworkScene() {
     const { resolvedTheme } = useTheme();
     const isDark = resolvedTheme === "dark";
-    const { viewport, mouse } = useThree();
+    const { viewport } = useThree();
 
     const pointsRef = useRef<THREE.Points>(null);
     const linesRef = useRef<THREE.LineSegments>(null);

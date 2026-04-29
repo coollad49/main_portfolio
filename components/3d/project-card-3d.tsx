@@ -2,8 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/lib/data/projects";
 
@@ -12,13 +11,6 @@ interface ProjectCardProps {
     index: number;
     featured?: boolean;
 }
-
-const categoryColors: Record<string, string> = {
-    "ai-ml": "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    fullstack: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    tools: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    data: "bg-orange-500/10 text-orange-400 border-orange-500/20",
-};
 
 const categoryLabels: Record<string, string> = {
     "ai-ml": "AI / ML",
@@ -31,6 +23,9 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
     const cardRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
+    // Format index to be like "01", "02", etc.
+    const formattedIndex = (index + 1).toString().padStart(2, "0");
+
     return (
         <motion.article
             ref={cardRef}
@@ -38,129 +33,105 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                ease: [0.25, 1, 0.5, 1],
+                duration: 0.7,
+                delay: (index % 3) * 0.1,
+                ease: [0.21, 0.47, 0.32, 0.98], // Custom sleek easing
             }}
             className={cn(
-                "group relative flex flex-col rounded-2xl overflow-hidden",
-                "bg-neutral-900 border border-neutral-800",
-                "transition-all duration-300",
-                isHovered
-                    ? "border-neutral-700 shadow-lg shadow-neutral-950/50"
-                    : "border-neutral-800/80",
-                featured && "md:col-span-2 md:flex-row"
+                "group relative flex flex-col bg-neutral-950 border border-neutral-800/60",
+                "transition-colors duration-500 hover:bg-neutral-900/40 hover:border-neutral-700",
+                // Sharp corners for an engineered, precise look
+                "rounded-none", 
+                featured ? "md:col-span-2 p-8 md:p-12" : "p-6 md:p-8"
             )}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Image */}
-            <div
-                className={cn(
-                    "relative overflow-hidden bg-neutral-950",
-                    featured ? "md:w-1/2 aspect-[16/10] md:aspect-auto md:min-h-[320px]" : "aspect-[16/10]"
-                )}
-            >
-                {project.image ? (
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
+            {/* Top Header: Index & Category */}
+            <div className="flex justify-between items-start mb-12 md:mb-16">
+                <span className="text-neutral-500 font-mono text-xs md:text-sm tracking-[0.2em] uppercase">
+                    {formattedIndex} <span className="mx-2 text-neutral-700">—</span> {categoryLabels[project.category]}
+                </span>
+                <div className="overflow-hidden relative w-6 h-6">
+                    <ArrowRight 
                         className={cn(
-                            "object-center transition-transform duration-500 ease-out",
-                            isHovered && "scale-105"
-                        )}
-                        sizes={featured ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
+                            "absolute inset-0 w-6 h-6 text-neutral-600 transition-all duration-500 ease-out transform",
+                            isHovered ? "translate-x-full -translate-y-full opacity-0" : "translate-x-0 translate-y-0 opacity-100"
+                        )} 
                     />
-                ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-900" />
-                )}
-
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 via-transparent to-transparent" />
-
-                {/* Featured badge */}
-                {/* {project.featured && (
-                    <span className="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/10">
-                        Featured
-                    </span>
-                )} */}
-
-                {/* Category badge */}
-                {/* <span
-                    className={cn(
-                        "absolute top-3 right-3 inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-full border",
-                        categoryColors[project.category]
-                    )}
-                >
-                    {categoryLabels[project.category]}
-                </span> */}
+                    <ArrowRight 
+                        className={cn(
+                            "absolute inset-0 w-6 h-6 text-white transition-all duration-500 ease-out transform -rotate-45",
+                            isHovered ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-full translate-y-full opacity-0"
+                        )} 
+                    />
+                </div>
             </div>
 
-            {/* Content */}
-            <div
-                className={cn(
-                    "flex flex-col flex-grow p-5 md:p-6",
-                    featured && "md:w-1/2 md:justify-center"
-                )}
-            >
-                <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-neutral-200 transition-colors">
+            {/* Main Content */}
+            <div className="flex-grow">
+                <h3 
+                    className={cn(
+                        "font-bold text-white mb-6 tracking-tight transition-colors duration-300",
+                        featured ? "text-3xl md:text-5xl leading-tight" : "text-2xl md:text-3xl leading-snug"
+                    )}
+                >
                     {project.title}
                 </h3>
 
-                <p className="text-sm text-neutral-400 mb-4 line-clamp-2 flex-grow">
-                    {project.shortDescription}
-                </p>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.techStack.slice(0, 5).map((tech) => (
-                        <span
-                            key={tech}
-                            className="px-2 py-0.5 text-xs font-medium rounded-md bg-neutral-800 text-neutral-400 border border-neutral-700/50"
-                        >
-                            {tech}
-                        </span>
-                    ))}
-                    {project.techStack.length > 5 && (
-                        <span className="px-2 py-0.5 text-xs text-neutral-500">
-                            +{project.techStack.length - 5}
-                        </span>
+                <p 
+                    className={cn(
+                        "text-neutral-400 leading-relaxed max-w-3xl",
+                        featured ? "text-base md:text-lg mb-12" : "text-sm md:text-base mb-10 line-clamp-3"
                     )}
+                >
+                    {featured ? project.description : project.shortDescription}
+                </p>
+            </div>
+
+            {/* Bottom Footer: Tech Stack & Links */}
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pt-8 border-t border-neutral-800/50">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-x-4 gap-y-2 max-w-2xl">
+                    {project.techStack.map((tech, i) => (
+                        <div key={tech} className="flex items-center gap-4">
+                            <span className="text-[10px] md:text-xs font-mono text-neutral-500 uppercase tracking-widest">
+                                {tech}
+                            </span>
+                            {i < project.techStack.length - 1 && (
+                                <span className="w-1 h-1 rounded-full bg-neutral-800" />
+                            )}
+                        </div>
+                    ))}
                 </div>
 
                 {/* Actions */}
-                <div className="flex items-center gap-3 mt-auto">
-                    {project.live && (
-                        <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg bg-white text-neutral-900 hover:bg-neutral-100 transition-colors"
-                        >
-                            <ExternalLink className="w-3.5 h-3.5" />
-                            Live Demo
-                        </a>
-                    )}
+                <div className="flex items-center gap-6 shrink-0">
                     {project.github && (
                         <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={cn(
-                                "inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg border transition-colors",
-                                project.live
-                                    ? "border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-600"
-                                    : "border-neutral-700 text-neutral-300 hover:bg-neutral-800 hover:border-neutral-600"
-                            )}
+                            className="group/link flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
                         >
-                            <Github className="w-3.5 h-3.5" />
-                            Code
+                            <span>Code</span>
+                            <Github className="w-4 h-4 transition-transform group-hover/link:scale-110" />
+                        </a>
+                    )}
+                    {project.live && (
+                        <a
+                            href={project.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-white hover:text-neutral-300 transition-colors"
+                        >
+                            <span>Live Demo</span>
+                            <ExternalLink className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
                         </a>
                     )}
                     {!project.live && !project.github && (
-                        <span className="text-xs text-neutral-600 italic">
-                            Private project
+                        <span className="text-xs font-mono uppercase tracking-widest text-neutral-600">
+                            Internal
                         </span>
                     )}
                 </div>

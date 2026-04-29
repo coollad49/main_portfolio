@@ -5,25 +5,25 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
     --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
+    --ring: 0 0% 0%;
+    --radius: 0rem; /* Sharp edges for premium look */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -32,25 +32,25 @@
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 10%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -65,7 +65,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-white selection:text-black;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 }
 
@@ -76,24 +77,24 @@
 }
 
 .card-hover {
-  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  @apply transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/5;
 }
 
 .grid-pattern {
-  background-image: linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-image: linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
+  background-size: 64px 64px; /* Slightly larger, more architectural grid */
 }
 
 /* Button Components */
 .btn {
-  @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-200;
+  @apply inline-flex items-center justify-center px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] rounded-none transition-all duration-300;
 }
 
 .btn-primary {
-  @apply bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100;
+  @apply bg-white text-black hover:bg-neutral-200 border border-white;
 }
 
 .btn-outline {
-  @apply border border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800;
+  @apply border border-neutral-700 text-neutral-300 hover:bg-white hover:text-black hover:border-white;
 }
