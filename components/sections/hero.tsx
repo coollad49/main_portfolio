@@ -2,9 +2,10 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
-import { Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight, Moon, Sun } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/utils";
 import dynamic from "next/dynamic";
+import { useTheme } from "../theme-provider";
 
 const HeroScene = dynamic(
     () => import("../3d/hero-scene").then((mod) => mod.HeroScene),
@@ -16,6 +17,8 @@ export function Hero() {
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const isLight = theme === "light";
 
     useEffect(() => {
         // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -189,6 +192,17 @@ export function Hero() {
                                 {link.label}
                             </a>
                         ))}
+
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={() => setTheme(isLight ? "dark" : "light")}
+                            className="flex items-center gap-2 text-[10px] md:text-xs font-mono tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors ml-2 md:ml-4 pl-2 md:pl-4 border-l border-border group"
+                        >
+                            <span className="hidden sm:inline group-hover:opacity-100 transition-opacity">
+                                {isLight ? "Too bright?" : "Too dark?"}
+                            </span>
+                            {isLight ? <Moon className="w-3 h-3" /> : <Sun className="w-3 h-3" />}
+                        </button>
                     </div>
 
                     {/* Scroll indicator */}
