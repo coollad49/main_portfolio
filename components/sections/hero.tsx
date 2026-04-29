@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, ArrowRight, MapPin } from "lucide-react";
+import { ArrowDown, Download, ArrowRight, MapPin, MessageCircle } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
@@ -119,8 +119,12 @@ export function Hero() {
                         transition={{ delay: 0.5, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
                         className="mb-10"
                     >
-                        <p className="text-lg md:text-xl text-neutral-400 mb-3 max-w-xl">
+                        <p className="text-lg md:text-xl text-neutral-300 mb-3 max-w-2xl">
                             {personalInfo.tagline}
+                        </p>
+                        <p className="text-sm md:text-base text-neutral-500 max-w-2xl mb-4">
+                            I work with founders, teams, and schools to build products that reduce
+                            repetitive work, improve operations, and ship with confidence.
                         </p>
                         <div className="h-8 flex items-center">
                             <span className="text-base md:text-lg font-medium text-neutral-300 font-mono">
@@ -138,15 +142,29 @@ export function Hero() {
                         transition={{ delay: 0.7, duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
                         className="flex flex-col sm:flex-row items-start gap-4"
                     >
-                        <motion.button
+                        <motion.a
                             onClick={handleScrollToProjects}
+                            href="#projects"
                             className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 font-medium rounded-lg bg-white text-neutral-900 hover:bg-neutral-100 transition-colors duration-200"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            View Projects
+                            See Client Work
                             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-                        </motion.button>
+                        </motion.a>
+                        <motion.a
+                            href="#contact"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className="group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 font-medium rounded-lg bg-neutral-800 text-neutral-200 hover:bg-neutral-700 transition-all duration-200"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            <MessageCircle className="w-4 h-4" />
+                            Start a Project
+                        </motion.a>
                         <motion.a
                             href="/resume.pdf"
                             download

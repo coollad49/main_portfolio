@@ -17,7 +17,7 @@ export function Skills() {
         <SectionWrapper id="skills" className="bg-neutral-950">
             <SectionHeader
                 title="Skills & Tech Stack"
-                subtitle="Technologies I use to bring ideas to life"
+                subtitle="Capabilities I use to move products from idea to reliable delivery"
             />
 
             <div className="grid md:grid-cols-2 gap-5">
@@ -76,8 +76,8 @@ export function Skills() {
                 transition={{ delay: 0.5 }}
                 className="text-center mt-8 text-sm text-neutral-500"
             >
-                ...and always learning more! Currently exploring advanced LLM
-                orchestration and edge computing.
+                I choose tools based on what solves the business problem best,
+                not what is trendy.
             </motion.p>
         </SectionWrapper>
     );

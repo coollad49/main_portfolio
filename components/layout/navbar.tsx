@@ -71,7 +71,7 @@ export function Navbar() {
         >
             <nav className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <motion.a
+                {/* <motion.a
                     href="#home"
                     onClick={(e) => {
                         e.preventDefault();
@@ -94,7 +94,7 @@ export function Navbar() {
                     <span className="text-neutral-500 font-mono text-lg transition-colors group-hover:text-neutral-300">
                         {"/>"}
                     </span>
-                </motion.a>
+                </motion.a> */}
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">

@@ -18,7 +18,7 @@ export function Blog({ posts }: BlogProps) {
         <SectionWrapper id="blog" className="bg-neutral-900" fullHeight={false}>
             <SectionHeader
                 title="Blog & Insights"
-                subtitle="Thoughts on development, AI, and building products"
+                subtitle="Practical lessons on building better products and workflows"
             />
 
             <div className="grid md:grid-cols-3 gap-5">

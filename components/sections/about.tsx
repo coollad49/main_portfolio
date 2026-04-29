@@ -10,7 +10,7 @@ export function About() {
         <SectionWrapper id="about" className="bg-neutral-900">
             <SectionHeader
                 title="About"
-                subtitle="The craft behind the code"
+                subtitle="How I turn complex problems into practical products"
             />
 
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
@@ -52,36 +52,27 @@ export function About() {
                         <p className="text-lg text-neutral-200">
                             I&apos;m a{" "}
                             <span className="text-white font-medium">
-                                Full-Stack Developer
+                                product-minded engineer
                             </span>{" "}
-                            and{" "}
+                            who helps teams{" "}
                             <span className="text-white font-medium">
-                                AI Engineer
+                                ship useful software and AI features faster
                             </span>{" "}
-                            from Nigeria, passionate about building intelligent solutions that
-                            solve real-world problems.
+                            with less operational friction.
                         </p>
 
                         <p>
-                            My journey started with a simple belief: if there&apos;s a tedious
-                            process that can be automated, it should be. This mindset has led
-                            me to build everything from{" "}
-                            <span className="text-neutral-300">
-                                AI-powered exam graders
-                            </span>{" "}
-                            to{" "}
-                            <span className="text-neutral-300">
-                                school management systems
-                            </span>
-                            .
+                            I focus on one thing: identifying where teams lose time, then
+                            building systems that make that work faster, simpler, and more
+                            reliable. That includes everything from automated grading workflows
+                            to school finance and operations platforms.
                         </p>
 
                         <p>
-                            I specialize in combining modern web technologies with AI
-                            capabilities to create products that are not just functional, but
-                            genuinely useful. Whether it&apos;s integrating LLMs, building RAG
-                            pipelines, or crafting beautiful interfaces, I love every part of
-                            the development process.
+                            Clients usually come to me when a process is too manual, too slow,
+                            or too error-prone. I design and build end-to-end solutions that
+                            improve day-to-day execution while still being maintainable for the
+                            team long term.
                         </p>
                     </div>
 
