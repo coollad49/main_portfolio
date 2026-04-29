@@ -6,7 +6,7 @@ readTime: "5 min read"
 date: "Feb 28, 2024"
 author:
   name: "Lucas-Adebayo Daniel"
-  avatar: "/me.jpg"
+  avatar: "/me.png"
 ---
 
 # Why I Choose Next.js

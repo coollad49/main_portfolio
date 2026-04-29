@@ -30,7 +30,7 @@ export function About() {
                         {/* Avatar Container */}
                         <div className="absolute inset-0 rounded-2xl bg-neutral-800 overflow-hidden">
                             <Image
-                                src="/me.jpg"
+                                src="/me.png"
                                 alt="Lucas-Adebayo Daniel"
                                 fill
                                 className="object-cover"

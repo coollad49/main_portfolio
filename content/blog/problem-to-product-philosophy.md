@@ -6,7 +6,7 @@ readTime: "4 min read"
 date: "Jan 10, 2024"
 author:
   name: "Lucas-Adebayo Daniel"
-  avatar: "/me.jpg"
+  avatar: "/me.png"
 ---
 
 # From Problem to Product
