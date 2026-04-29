@@ -69,8 +69,25 @@ export function Hero() {
             {/* Architectural Grid Overlay */}
             <div className="absolute inset-0 pointer-events-none grid-pattern opacity-30 z-[1]" />
 
+            {/* Top Bar (Replaces Navbar for Logo/Branding) */}
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+                className="absolute top-0 left-0 right-0 z-20 h-24 flex items-center px-6 lg:px-12 max-w-7xl mx-auto"
+            >
+                <div className="flex items-center gap-4">
+                    <div className="w-8 h-8 bg-white flex items-center justify-center">
+                        <span className="text-black font-mono font-bold text-sm leading-none">L/D</span>
+                    </div>
+                    <span className="text-xs font-mono uppercase tracking-[0.2em] text-white">
+                        System Arch.
+                    </span>
+                </div>
+            </motion.div>
+
             {/* Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-center min-h-[80vh]">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-center flex-1 pb-20 pt-24">
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
