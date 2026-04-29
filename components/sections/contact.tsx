@@ -54,7 +54,7 @@ export function Contact() {
     };
 
     return (
-        <SectionWrapper id="contact" className="bg-black text-white relative">
+        <SectionWrapper id="contact" className="bg-background text-foreground relative">
             {/* Subtle grid pattern overlay */}
             <div className="absolute inset-0 pointer-events-none grid-pattern opacity-30" />
 
@@ -65,7 +65,7 @@ export function Contact() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 mb-4"
+                            className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-4"
                         >
                             05 // Initiation
                         </motion.h2>
@@ -86,7 +86,7 @@ export function Contact() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="max-w-sm text-sm text-neutral-400 font-mono leading-relaxed"
+                        className="max-w-sm text-sm text-muted-foreground font-mono leading-relaxed"
                     >
                         READY TO BUILD SYSTEMS THAT ACCELERATE YOUR GROWTH. INITIATE SECURE COMMS.
                     </motion.div>
@@ -101,23 +101,23 @@ export function Contact() {
                         transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                         className="flex flex-col h-full"
                     >
-                        <p className="text-xl md:text-3xl text-white font-medium tracking-tight leading-snug mb-12">
+                        <p className="text-xl md:text-3xl text-foreground font-medium tracking-tight leading-snug mb-12">
                             Whether you need a full-stack developer, an AI solution, or precise technical execution—reach out.
                         </p>
 
                         <div className="space-y-12">
                             {/* Email Block */}
                             <div>
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 mb-4">Direct Comms</p>
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">Direct Comms</p>
                                 <div className="flex items-center gap-4">
                                     <button
                                         onClick={copyEmail}
-                                        className="group relative flex items-center gap-4 text-xl md:text-2xl font-bold tracking-tight hover:text-neutral-300 transition-colors"
+                                        className="group relative flex items-center gap-4 text-xl md:text-2xl font-bold tracking-tight hover:text-muted-foreground transition-colors"
                                     >
                                         <span>{socialLinks.email}</span>
-                                        <div className="w-8 h-8 rounded-full border border-neutral-800 flex items-center justify-center group-hover:border-white transition-colors bg-neutral-950">
+                                        <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center group-hover:border-foreground transition-colors bg-secondary">
                                             {copied ? (
-                                                <Check className="w-4 h-4 text-white" />
+                                                <Check className="w-4 h-4 text-foreground" />
                                             ) : (
                                                 <Copy className="w-4 h-4" />
                                             )}
@@ -128,7 +128,7 @@ export function Contact() {
                                     <motion.p
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        className="text-xs font-mono text-neutral-400 mt-4"
+                                        className="text-xs font-mono text-muted-foreground mt-4"
                                     >
                                         &gt; COPIED TO CLIPBOARD
                                     </motion.p>
@@ -137,7 +137,7 @@ export function Contact() {
 
                             {/* Social Links Block */}
                             <div>
-                                <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 mb-4">Network</p>
+                                <p className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">Network</p>
                                 <div className="flex gap-4">
                                     {socials.map((social) => (
                                         <a
@@ -145,11 +145,11 @@ export function Contact() {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group flex items-center justify-center w-16 h-16 bg-neutral-950 border border-neutral-800 hover:border-white transition-colors duration-300 relative overflow-hidden"
+                                            className="group flex items-center justify-center w-16 h-16 bg-secondary border border-border hover:border-foreground transition-colors duration-300 relative overflow-hidden"
                                             aria-label={social.label}
                                         >
-                                            <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
-                                            <social.icon className="w-5 h-5 text-neutral-400 group-hover:text-black relative z-10 transition-colors duration-500" />
+                                            <div className="absolute inset-0 bg-foreground translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                                            <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-background relative z-10 transition-colors duration-500" />
                                         </a>
                                     ))}
                                 </div>
@@ -163,16 +163,16 @@ export function Contact() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="bg-neutral-950 p-8 md:p-12 border border-neutral-800 relative group"
+                        className="bg-secondary p-8 md:p-12 border border-border relative group"
                     >
-                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
 
                         <form onSubmit={handleSubmit} className="space-y-8">
                             <div className="space-y-2">
-                                <label htmlFor="name" className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+                                <label htmlFor="name" className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                                     Name / Callsign
                                 </label>
                                 <input
@@ -182,13 +182,13 @@ export function Contact() {
                                     value={formState.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-transparent border-b border-neutral-800 py-3 text-white placeholder:text-neutral-700 focus:border-white focus:outline-none transition-colors font-mono text-sm"
+                                    className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors font-mono text-sm"
                                     placeholder="Enter your name"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="email" className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+                                <label htmlFor="email" className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                                     Return Address
                                 </label>
                                 <input
@@ -198,13 +198,13 @@ export function Contact() {
                                     value={formState.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-transparent border-b border-neutral-800 py-3 text-white placeholder:text-neutral-700 focus:border-white focus:outline-none transition-colors font-mono text-sm"
+                                    className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors font-mono text-sm"
                                     placeholder="system@domain.com"
                                 />
                             </div>
 
                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+                                <label htmlFor="message" className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                                     Payload
                                 </label>
                                 <textarea
@@ -214,7 +214,7 @@ export function Contact() {
                                     onChange={handleChange}
                                     required
                                     rows={4}
-                                    className="w-full bg-transparent border-b border-neutral-800 py-3 text-white placeholder:text-neutral-700 focus:border-white focus:outline-none transition-colors font-mono text-sm resize-none"
+                                    className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors font-mono text-sm resize-none"
                                     placeholder="Describe your requirements..."
                                 />
                             </div>
@@ -234,7 +234,7 @@ export function Contact() {
                                     <motion.div
                                         animate={{ rotate: 360 }}
                                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                        className="w-4 h-4 border-2 border-black border-t-transparent rounded-full"
+                                        className="w-4 h-4 border-2 border-background border-t-transparent rounded-full"
                                     />
                                 ) : isSubmitted ? (
                                     <Check className="w-4 h-4" />

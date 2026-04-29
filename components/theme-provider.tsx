@@ -2,19 +2,19 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark";
+type Theme = "light" | "dark";
 
 interface ThemeContextType {
     theme: Theme;
     setTheme: (theme: Theme) => void;
-    resolvedTheme: "dark";
+    resolvedTheme: Theme;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-    const [theme, setTheme] = useState<Theme>("dark");
-    const [resolvedTheme, setResolvedTheme] = useState<"dark">("dark");
+    const [theme, setTheme] = useState<Theme>("light");
+    const [resolvedTheme, setResolvedTheme] = useState<Theme>("light");
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -26,16 +26,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         if (!mounted) return;
 
         const root = document.documentElement;
-        root.classList.remove("light");
-        root.classList.add("dark");
+        root.classList.remove("dark", "light");
+        root.classList.add(theme);
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        setResolvedTheme("dark");
+        setResolvedTheme(theme);
     }, [theme, mounted]);
 
     const value: ThemeContextType = {
         theme,
         setTheme,
-        resolvedTheme: mounted ? resolvedTheme : "dark",
+        resolvedTheme: mounted ? resolvedTheme : "light",
     };
 
     return (
@@ -49,9 +49,9 @@ export function useTheme() {
     const context = useContext(ThemeContext);
     if (context === undefined) {
         return {
-            theme: "dark" as Theme,
+            theme: "light" as Theme,
             setTheme: () => { },
-            resolvedTheme: "dark" as const,
+            resolvedTheme: "light" as const,
         };
     }
     return context;

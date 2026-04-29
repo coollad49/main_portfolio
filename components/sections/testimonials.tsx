@@ -44,7 +44,7 @@ export function Testimonials() {
     }, [isAutoPlaying, next]);
 
     return (
-        <SectionWrapper id="testimonials" className="bg-neutral-950" fullHeight={false}>
+        <SectionWrapper id="testimonials" className="bg-secondary" fullHeight={false}>
             <SectionHeader
                 title="What People Say"
                 subtitle="Feedback from collaborators and users"
@@ -56,11 +56,11 @@ export function Testimonials() {
                 onMouseLeave={() => setIsAutoPlaying(true)}
             >
                 {/* Main Card */}
-                <div className="relative bg-neutral-900 rounded-2xl p-8 md:p-12 border border-neutral-800">
+                <div className="relative bg-muted border border-border">
 
                     {/* Decorative Quote Icon */}
                     <div className="absolute top-6 left-6 md:top-10 md:left-10 opacity-10">
-                        <Quote className="w-12 h-12 md:w-16 md:h-16 text-neutral-500 fill-current" />
+                        <Quote className="w-12 h-12 md:w-16 md:h-16 text-muted-foreground fill-current" />
                     </div>
 
                     {/* Testimonial Content */}
@@ -74,23 +74,23 @@ export function Testimonials() {
                                 transition={{ duration: 0.3 }}
                                 className="text-center max-w-2xl mx-auto"
                             >
-                                <p className="text-xl md:text-2xl font-medium text-neutral-100 leading-relaxed mb-8">
+                                <p className="text-xl md:text-2xl font-medium text-foreground leading-relaxed mb-8">
                                     &ldquo;{testimonials[current].quote}&rdquo;
                                 </p>
 
                                 <div className="flex flex-col items-center">
-                                    <div className="w-14 h-14 rounded-full bg-neutral-800 mb-4 flex items-center justify-center border border-neutral-700">
-                                        <span className="text-lg font-bold text-white">
+                                    <div className="w-14 h-14 bg-accent mb-4 flex items-center justify-center border border-border">
+                                        <span className="text-lg font-bold text-foreground">
                                             {testimonials[current].name.charAt(0)}
                                         </span>
                                     </div>
-                                    <h4 className="font-bold text-lg text-white">
+                                    <h4 className="font-bold text-lg text-foreground">
                                         {testimonials[current].name}
                                     </h4>
-                                    <p className="text-neutral-400 text-sm font-medium">
+                                    <p className="text-muted-foreground text-sm font-medium">
                                         {testimonials[current].role}
                                         <span className="mx-1.5 opacity-50">•</span>
-                                        <span className="text-neutral-500">
+                                        <span className="text-muted-foreground">
                                             {testimonials[current].company}
                                         </span>
                                     </p>
@@ -105,7 +105,7 @@ export function Testimonials() {
                     {/* Prev Button */}
                     <motion.button
                         onClick={prev}
-                        className="p-3 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-600 transition-all"
+                        className="p-3 bg-muted border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-all"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="Previous testimonial"
@@ -120,10 +120,10 @@ export function Testimonials() {
                                 key={index}
                                 onClick={() => setCurrent(index)}
                                 className={cn(
-                                    "h-2 rounded-full transition-all duration-300",
+                                    "h-2 transition-all duration-300",
                                     current === index
-                                        ? "w-8 bg-white"
-                                        : "w-2 bg-neutral-700 hover:bg-neutral-600"
+                                        ? "w-8 bg-foreground"
+                                        : "w-2 bg-border hover:bg-muted-foreground"
                                 )}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />
@@ -133,7 +133,7 @@ export function Testimonials() {
                     {/* Next Button */}
                     <motion.button
                         onClick={next}
-                        className="p-3 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:border-neutral-600 transition-all"
+                        className="p-3 bg-muted border border-border text-muted-foreground hover:text-foreground hover:border-foreground transition-all"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label="Next testimonial"

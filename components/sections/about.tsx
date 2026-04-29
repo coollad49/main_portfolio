@@ -8,14 +8,14 @@ import { ArrowRight } from "lucide-react";
 
 export function About() {
     return (
-        <SectionWrapper id="about" className="bg-neutral-950 text-white">
+        <SectionWrapper id="about" className="bg-secondary text-foreground">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-6">
                 <div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 mb-4"
+                        className="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-4"
                     >
                         01 // About
                     </motion.h2>
@@ -36,7 +36,7 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="max-w-sm text-sm text-neutral-400 font-mono leading-relaxed"
+                    className="max-w-sm text-sm text-muted-foreground font-mono leading-relaxed"
                 >
                     HOW I TURN COMPLEX PROBLEMS INTO PRACTICAL, SCALABLE PRODUCTS WITH ZERO COMPROMISES.
                 </motion.div>
@@ -51,7 +51,7 @@ export function About() {
                     transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="lg:col-span-5 relative"
                 >
-                    <div className="relative aspect-[4/5] w-full bg-neutral-900 overflow-hidden group">
+                    <div className="relative aspect-[4/5] w-full bg-muted overflow-hidden group">
                         <Image
                             src="/me.png"
                             alt="Lucas-Adebayo Daniel"
@@ -60,10 +60,10 @@ export function About() {
                             priority
                         />
                         {/* Overlay elements */}
-                        <div className="absolute inset-0 border border-neutral-800 pointer-events-none" />
+                        <div className="absolute inset-0 border border-border pointer-events-none" />
                         <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                            <div className="w-8 h-[1px] bg-white" />
-                            <span className="text-[10px] font-mono tracking-widest uppercase">
+                            <div className="w-8 h-[1px] bg-foreground" />
+                            <span className="text-[10px] font-mono tracking-widest uppercase text-foreground">
                                 System Arch.
                             </span>
                         </div>
@@ -78,8 +78,8 @@ export function About() {
                     transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                     className="lg:col-span-7 flex flex-col justify-between h-full"
                 >
-                    <div className="space-y-8 text-neutral-400 text-base md:text-lg leading-relaxed font-light mb-16">
-                        <p className="text-xl md:text-3xl text-white font-medium tracking-tight leading-snug">
+                    <div className="space-y-8 text-muted-foreground text-base md:text-lg leading-relaxed font-light mb-16">
+                        <p className="text-xl md:text-3xl text-foreground font-medium tracking-tight leading-snug">
                             I am a product-minded engineer who helps teams ship useful software and AI features faster, with less operational friction.
                         </p>
 
@@ -93,7 +93,7 @@ export function About() {
                     </div>
 
                     {/* Architectural Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-neutral-800/50">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border/50">
                         {stats.map((stat, i) => (
                             <motion.div
                                 key={stat.label}
@@ -101,14 +101,14 @@ export function About() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                                className="bg-neutral-950 p-6 md:p-8 flex flex-col justify-between border-t md:border-t-0 md:border-l first:border-l-0 border-neutral-800"
+                                className="bg-background p-6 md:p-8 flex flex-col justify-between border-t md:border-t-0 md:border-l first:border-l-0 border-border"
                             >
-                                <div className="text-3xl lg:text-4xl font-mono text-white mb-4 tracking-tighter">
+                                <div className="text-3xl lg:text-4xl font-mono text-foreground mb-4 tracking-tighter">
                                     {stat.value}
                                 </div>
-                                <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest flex items-center justify-between">
+                                <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest flex items-center justify-between">
                                     {stat.label}
-                                    <ArrowRight className="w-3 h-3 text-neutral-700" />
+                                    <ArrowRight className="w-3 h-3 text-muted-foreground/40" />
                                 </div>
                             </motion.div>
                         ))}

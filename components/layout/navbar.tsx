@@ -64,7 +64,7 @@ export function Navbar() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 isScrolled
-                    ? "py-4 bg-black/80 backdrop-blur-xl border-b border-neutral-900"
+                    ? "py-4 bg-background/80 backdrop-blur-xl border-b border-border"
                     : "py-6 bg-transparent"
             )}
         >
@@ -80,10 +80,10 @@ export function Navbar() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                 >
-                    <span className="font-bold text-lg tracking-tighter text-white uppercase leading-none">
+                    <span className="font-bold text-lg tracking-tighter text-foreground uppercase leading-none">
                         LAD
                     </span>
-                    <span className="font-mono text-[10px] tracking-widest text-neutral-500 uppercase leading-none mt-1">
+                    <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase leading-none mt-1">
                         System
                     </span>
                 </motion.a>
@@ -101,8 +101,8 @@ export function Navbar() {
                             className={cn(
                                 "text-xs font-mono uppercase tracking-widest transition-colors relative py-2",
                                 activeSection === item.href.replace("#", "")
-                                    ? "text-white"
-                                    : "text-neutral-500 hover:text-neutral-300"
+                                    ? "text-foreground"
+                                    : "text-muted-foreground hover:text-foreground"
                             )}
                             whileHover={{ y: -2 }}
                             whileTap={{ y: 0 }}
@@ -111,7 +111,7 @@ export function Navbar() {
                             {activeSection === item.href.replace("#", "") && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-white"
+                                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-foreground"
                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 />
                             )}
@@ -123,7 +123,7 @@ export function Navbar() {
                 <div className="flex items-center gap-4 md:hidden">
                     <motion.button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="p-2 text-white"
+                        className="p-2 text-foreground"
                         whileTap={{ scale: 0.9 }}
                         aria-label="Toggle menu"
                     >
@@ -144,7 +144,7 @@ export function Navbar() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-                        className="md:hidden bg-black/95 backdrop-blur-xl border-t border-neutral-900"
+                        className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border"
                     >
                         <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
                             {navItems.map((item, i) => (
@@ -159,10 +159,10 @@ export function Navbar() {
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.05 }}
                                     className={cn(
-                                        "text-sm font-mono uppercase tracking-widest py-2 border-b border-neutral-900",
+                                        "text-sm font-mono uppercase tracking-widest py-2 border-b border-border",
                                         activeSection === item.href.replace("#", "")
-                                            ? "text-white"
-                                            : "text-neutral-500"
+                                            ? "text-foreground"
+                                            : "text-muted-foreground"
                                     )}
                                 >
                                     {item.label}

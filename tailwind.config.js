@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -48,6 +48,19 @@ module.exports = {
           "3": "hsl(var(--chart-3))",
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
+        },
+        midnight: {
+          50: "#F1F5F9",
+          100: "#E2E8F0",
+          200: "#CBD5E1",
+          300: "#94A3B8",
+          400: "#64748B",
+          500: "#475569",
+          600: "#334155",
+          700: "#1E293B",
+          800: "#0F172A",
+          900: "#070B14",
+          950: "#04060A",
         },
       },
       borderRadius: {

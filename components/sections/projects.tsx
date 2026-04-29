@@ -19,7 +19,7 @@ export function Projects() {
     const otherProjects = filteredProjects.filter((p) => !p.featured);
 
     return (
-        <SectionWrapper id="projects" fullHeight={false} className="bg-black text-white">
+        <SectionWrapper id="projects" fullHeight={false} className="bg-background text-foreground">
             <SectionHeader
                 title="Selected Work"
                 subtitle="Engineered for performance. Designed with precision."
@@ -39,15 +39,15 @@ export function Projects() {
                         className={cn(
                             "relative pb-2 text-xs md:text-sm font-mono uppercase tracking-[0.15em] transition-colors duration-300",
                             activeCategory === category.id
-                                ? "text-white"
-                                : "text-neutral-600 hover:text-neutral-300"
+                                ? "text-foreground"
+                                : "text-muted-foreground/50 hover:text-muted-foreground"
                         )}
                     >
                         {category.label}
                         {activeCategory === category.id && (
                             <motion.div
                                 layoutId="activeCategory"
-                                className="absolute bottom-0 left-0 right-0 h-[1px] bg-white"
+                                className="absolute bottom-0 left-0 right-0 h-[1px] bg-foreground"
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             />
                         )}
@@ -98,12 +98,12 @@ export function Projects() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mt-20 md:mt-32 pt-8 border-t border-neutral-800/50 flex justify-between items-center"
+                className="mt-20 md:mt-32 pt-8 border-t border-border/50 flex justify-between items-center"
             >
-                <span className="text-xs font-mono uppercase tracking-widest text-neutral-600">
+                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground/50">
                     Portfolio / {new Date().getFullYear()}
                 </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
                     {String(filteredProjects.length).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
                 </span>
             </motion.div>

@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     return (
-        <main className="relative min-h-screen bg-white dark:bg-neutral-950">
+        <main className="relative min-h-screen bg-background">
             <Navbar />
 
             <article className="pt-32 pb-20">
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {/* Back Link */}
                     <Link
                         href="/blog"
-                        className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors mb-8"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-8"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Blog
@@ -71,26 +71,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {/* Header */}
                     <header className="mb-10">
                         <div className="flex items-center gap-3 mb-6 text-sm font-medium">
-                            <span className="px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 flex items-center gap-1.5">
+                            <span className="px-3 py-1 bg-muted text-muted-foreground flex items-center gap-1.5">
                                 <Tag className="w-3.5 h-3.5" />
                                 {post.category}
                             </span>
-                            <span className="text-neutral-500 flex items-center gap-1.5">
+                            <span className="text-muted-foreground flex items-center gap-1.5">
                                 <Clock className="w-3.5 h-3.5" />
                                 {post.readTime}
                             </span>
-                            <span className="text-neutral-500 flex items-center gap-1.5">
+                            <span className="text-muted-foreground flex items-center gap-1.5">
                                 <Calendar className="w-3.5 h-3.5" />
                                 {post.date}
                             </span>
                         </div>
 
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-neutral-900 dark:text-white leading-tight">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground leading-tight">
                             {post.title}
                         </h1>
 
                         {post.image && (
-                            <div className="relative w-full h-64 md:h-96 mb-8 rounded-2xl overflow-hidden">
+                            <div className="relative w-full h-64 md:h-96 mb-8 overflow-hidden">
                                 <Image
                                     src={post.image}
                                     alt={post.title}
@@ -101,8 +101,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             </div>
                         )}
 
-                        <div className="flex items-center gap-3 pt-6 border-t border-neutral-100 dark:border-neutral-800">
-                            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-200 dark:bg-neutral-800">
+                        <div className="flex items-center gap-3 pt-6 border-t border-border">
+                            <div className="relative w-10 h-10 overflow-hidden bg-muted">
                                 <Image
                                     src={post.author.avatar}
                                     alt={post.author.name}
@@ -111,10 +111,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                                 />
                             </div>
                             <div>
-                                <div className="font-medium text-neutral-900 dark:text-white">
+                                <div className="font-medium text-foreground">
                                     {post.author.name}
                                 </div>
-                                <div className="text-xs text-neutral-500">
+                                <div className="text-xs text-muted-foreground">
                                     Author
                                 </div>
                             </div>

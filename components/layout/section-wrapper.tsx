@@ -57,7 +57,7 @@ export function SectionHeader({
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold mb-4 text-neutral-900 dark:text-white"
+                className="text-4xl md:text-5xl font-bold mb-4 text-foreground"
                 style={{ letterSpacing: "-0.02em" }}
             >
                 {title}
@@ -69,7 +69,7 @@ export function SectionHeader({
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
                     className={cn(
-                        "text-lg max-w-xl text-neutral-600 dark:text-neutral-400",
+                        "text-lg max-w-xl text-muted-foreground",
                         align === "center" && "mx-auto"
                     )}
                 >
