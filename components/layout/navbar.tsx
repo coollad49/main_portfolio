@@ -97,7 +97,7 @@ export function Navbar() {
                 </motion.a> */}
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-8 ml-auto">
                     {navItems.map((item) => (
                         <motion.a
                             key={item.href}

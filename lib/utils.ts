@@ -49,7 +49,7 @@ export const slideInRight = {
 export const socialLinks = {
   github: "https://github.com/coollad49/",
   linkedin: "https://www.linkedin.com/in/daniellucasadebayo/",
-  twitter: "https://x.com/LucasAdebayoDa2",
+  twitter: "https://x.com/coollad49",
   email: "coollad49@outlook.com"
 };
 
